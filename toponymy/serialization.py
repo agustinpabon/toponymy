@@ -243,6 +243,22 @@ def _duplicate_coordinates(*coordinates):
     return repeated.any()
 
 
+def _group_membership_columns(coo, index_dtype):
+    """Group already validated coordinates into owned, ordered member arrays."""
+    nonzero = coo.data != 0
+    rows, columns = coo.row[nonzero], coo.col[nonzero]
+    if not len(rows):
+        return {}
+    order = np.lexsort((rows, columns))
+    rows, columns = rows[order], columns[order]
+    starts = np.flatnonzero(np.r_[True, columns[1:] != columns[:-1]])
+    ends = np.r_[starts[1:], len(rows)]
+    return {
+        int(columns[start]): rows[start:end].astype(index_dtype, copy=True)
+        for start, end in zip(starts, ends)
+    }
+
+
 def _lance_dtype(declared, stored, context):
     try:
         actual = np.dtype(stored.to_pandas_dtype())
@@ -500,6 +516,7 @@ class TopicModel:
                 raise ValueError(
                     "Clustering graph must be a finite nonnegative square matrix aligned with documents"
                 )
+            memberships = []
             for layer_index, matrix in enumerate(self.cluster_layers):
                 if (
                     not sp.issparse(matrix)
@@ -522,6 +539,15 @@ class TopicModel:
                     # A shallow container copy preserves the borrowed matrix.
                     copy(matrix).check_format(full_check=True)
                 coo = matrix.tocoo()
+                if matrix.format == "coo" and any(
+                    values.min(initial=0) < 0 or values.max(initial=-1) >= bound
+                    for values, bound in zip((coo.row, coo.col), coo.shape)
+                ):
+                    # COO exposes mutable coordinates but has no check_format.
+                    # Grouping must not silently discard an out-of-range column.
+                    raise ValueError(
+                        f"Cluster matrix {layer_index} has invalid coordinates"
+                    )
                 if _duplicate_coordinates(coo.row, coo.col):
                     raise ValueError(
                         f"Cluster matrix {layer_index} has duplicate coordinates"
@@ -530,10 +556,28 @@ class TopicModel:
                     raise ValueError(
                         f"Cluster matrix {layer_index} assigns a document to multiple topics"
                     )
+                # Match SciPy's sliced-column row dtype: matrices downcast when
+                # the document range fits, while sparse arrays retain index width.
+                index_dtype = coo.row.dtype
+                if sp.isspmatrix(matrix):
+                    index_dtype = (
+                        np.int64 if n_documents > np.iinfo(np.int32).max else np.int32
+                    )
+                elif matrix.format == "coo" and not matrix.nnz:
+                    # Empty COO-to-CSR conversion chooses width from the shape.
+                    index_dtype = (
+                        np.int64
+                        if max(matrix.shape) > np.iinfo(np.int32).max
+                        else np.int32
+                    )
+                memberships.append(
+                    (_group_membership_columns(coo, index_dtype), index_dtype)
+                )
             if table is not None:
                 if not {"layer", "cluster"}.issubset(table.columns):
                     raise ValueError("Topic table requires layer and cluster columns")
                 keys = set()
+                rows_by_layer = [[] for _ in self.cluster_layers]
                 for row in table.to_dict("records"):
                     layer = _nonnegative_integer(row["layer"], "Topic layer")
                     label = _nonnegative_integer(row["cluster"], "Topic cluster")
@@ -545,21 +589,27 @@ class TopicModel:
                     keys.add(key)
                     if "uid" in row and uid_to_ints(row["uid"]) != key:
                         raise ValueError(f"Topic UID does not match {key}")
+                    rows_by_layer[layer].append(row)
                 for layer_index, matrix in enumerate(self.cluster_layers):
-                    matrix = matrix.tocsr(copy=False)
-                    rows = table[table["layer"] == layer_index].sort_values("cluster")
+                    rows = sorted(
+                        rows_by_layer[layer_index], key=lambda row: row["cluster"]
+                    )
+                    columns, index_dtype = memberships[layer_index]
                     if len(rows) != matrix.shape[1]:
-                        labels = set(rows["cluster"])
-                        if any(label >= matrix.shape[1] for label in labels) or not set(
-                            matrix.nonzero()[1]
-                        ).issubset(labels):
+                        labels = {row["cluster"] for row in rows}
+                        if (
+                            any(label >= matrix.shape[1] for label in labels)
+                            or not columns.keys() <= labels
+                        ):
                             raise ValueError(
                                 f"Topic table does not describe cluster matrix {layer_index}"
                             )
-                    for ordinal, row in enumerate(rows.to_dict("records")):
+                    for ordinal, row in enumerate(rows):
                         label = int(row["cluster"])
                         column = ordinal if len(rows) == matrix.shape[1] else label
-                        members = matrix[:, [column]].nonzero()[0]
+                        members = columns.get(column)
+                        if members is None:
+                            members = np.empty(0, dtype=index_dtype)
                         members.flags.writeable = False
                         features = (
                             _load_json(row["features_json"], "topic features")
