@@ -1,0 +1,6 @@
+........................................................................ [ 84%]
+.............                                                            [100%]##vso[results.publish type=NUnit;runTitle='Pytest results';publishRunAttachments=true;]/Users/agus/Developer/toponymy-perf/test-output.xml
+##vso[task.logissue type=warning;]Coverage XML was not created, skipping upload.
+
+- generated Nunit xml file: /Users/agus/Developer/toponymy-perf/test-output.xml -
+85 passed in 5.16s

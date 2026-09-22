@@ -1,0 +1,24 @@
+{
+  "perf_base": "04c300c6a0fe1117531a64e6a7966b436eadfce7",
+  "seed_range": [
+    0,
+    39
+  ],
+  "cases": 240,
+  "formats": [
+    "csr_matrix",
+    "csc_matrix",
+    "coo_matrix",
+    "csr_array",
+    "csc_array",
+    "coo_array"
+  ],
+  "equivalence": [
+    "keys and iteration order",
+    "members values and order",
+    "member dtype",
+    "member ownership",
+    "features"
+  ],
+  "status": "passed"
+}

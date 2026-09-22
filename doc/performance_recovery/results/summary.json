@@ -1,0 +1,448 @@
+{
+  "estimator": "median of three independent warm-process medians; within-process repetitions correlated; no statistical superiority claim",
+  "base_optimized_exact_outputs": "PASS across sizes, replications and cache modes",
+  "matched_dependencies_and_harness": "PASS for all third-party distributions, interpreter, thread settings and harness",
+  "project_distribution_metadata_by_arm": {
+    "old": [
+      {
+        "distribution_name": "toponymy",
+        "version": "0.5.2"
+      }
+    ],
+    "base": [
+      {
+        "distribution_name": "toponymy",
+        "version": "0.5.2"
+      }
+    ],
+    "optimized": [
+      {
+        "distribution_name": "toponymy",
+        "version": "0.6.0.dev0"
+      }
+    ]
+  },
+  "project_metadata_note": "Only the tested Toponymy distribution is excluded from shared dependency equality. Its observed metadata is retained here; imported source paths, HEADs and Python source hashes identify the tested revisions separately.",
+  "identical_inputs_and_archives": "PASS",
+  "old_base_optimized_legacy_outputs": "PASS for all shared persistence digests",
+  "old_contracts": "OLD precomputed includes centroids but lacks NEW ownership/validation; OLD plotting leaf sizes are one; OLD persistence lacks NEW integrity/materialization work",
+  "cold": "Exploratory single process per arm/operation/cache condition; raw files only",
+  "rows": [
+    {
+      "size": 128,
+      "operation": "centroids",
+      "seconds": {
+        "old": 7.333e-06,
+        "base": 8.625e-06,
+        "optimized": 6.708e-06
+      },
+      "optimized_over_base": 0.7777391304347826,
+      "optimized_over_old": 0.9147688531296877,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 2912,
+        "base": 5040,
+        "optimized": 4560
+      }
+    },
+    {
+      "size": 128,
+      "operation": "precomputed",
+      "seconds": {
+        "old": 3.9791e-05,
+        "base": 0.00026175,
+        "optimized": 0.000101167
+      },
+      "optimized_over_base": 0.3865023877745941,
+      "optimized_over_old": 2.542459350104295,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 12424,
+        "base": 33471,
+        "optimized": 19685
+      }
+    },
+    {
+      "size": 128,
+      "operation": "cluster_tree",
+      "seconds": {
+        "old": 1.0875e-05,
+        "base": 4.725e-05,
+        "optimized": 4.4125e-05
+      },
+      "optimized_over_base": 0.9338624338624338,
+      "optimized_over_old": 4.057471264367816,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 7848,
+        "base": 17986,
+        "optimized": 15456
+      }
+    },
+    {
+      "size": 128,
+      "operation": "topic_hierarchy",
+      "seconds": {
+        "old": 2.3041e-05,
+        "base": 2.6375e-05,
+        "optimized": 6.416e-06
+      },
+      "optimized_over_base": 0.243260663507109,
+      "optimized_over_old": 0.2784601362788074,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 1928,
+        "base": 2112,
+        "optimized": 1896
+      }
+    },
+    {
+      "size": 128,
+      "operation": "legacy_read",
+      "seconds": {
+        "old": 0.005280042,
+        "base": 0.008305708,
+        "optimized": 0.007374708
+      },
+      "optimized_over_base": 0.8879084119017908,
+      "optimized_over_old": 1.3967138897758766,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 252019,
+        "base": 253453,
+        "optimized": 253453
+      }
+    },
+    {
+      "size": 512,
+      "operation": "centroids",
+      "seconds": {
+        "old": 2.2125e-05,
+        "base": 2.5792e-05,
+        "optimized": 2.3333e-05
+      },
+      "optimized_over_base": 0.9046603598014887,
+      "optimized_over_old": 1.0545988700564972,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 9152,
+        "base": 17328,
+        "optimized": 16944
+      }
+    },
+    {
+      "size": 512,
+      "operation": "precomputed",
+      "seconds": {
+        "old": 0.000105625,
+        "base": 0.000499333,
+        "optimized": 0.000115416
+      },
+      "optimized_over_base": 0.23114034121518104,
+      "optimized_over_old": 1.0926958579881656,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 36216,
+        "base": 102747,
+        "optimized": 64504
+      }
+    },
+    {
+      "size": 512,
+      "operation": "cluster_tree",
+      "seconds": {
+        "old": 3.275e-05,
+        "base": 7.475e-05,
+        "optimized": 6.3958e-05
+      },
+      "optimized_over_base": 0.8556254180602006,
+      "optimized_over_old": 1.952916030534351,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 23960,
+        "base": 47989,
+        "optimized": 39312
+      }
+    },
+    {
+      "size": 512,
+      "operation": "topic_hierarchy",
+      "seconds": {
+        "old": 8.2583e-05,
+        "base": 9.1e-05,
+        "optimized": 1.45e-05
+      },
+      "optimized_over_base": 0.15934065934065933,
+      "optimized_over_old": 0.175580930700023,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 2884,
+        "base": 3476,
+        "optimized": 2896
+      }
+    },
+    {
+      "size": 512,
+      "operation": "legacy_read",
+      "seconds": {
+        "old": 0.005353167,
+        "base": 0.008669375,
+        "optimized": 0.006983625
+      },
+      "optimized_over_base": 0.8055511498810468,
+      "optimized_over_old": 1.3045782057611879,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 392617,
+        "base": 394784,
+        "optimized": 395014
+      }
+    },
+    {
+      "size": 2048,
+      "operation": "centroids",
+      "seconds": {
+        "old": 8.6416e-05,
+        "base": 0.000102916,
+        "optimized": 9.2875e-05
+      },
+      "optimized_over_base": 0.9024349955303353,
+      "optimized_over_old": 1.0747431031290502,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 34112,
+        "base": 66480,
+        "optimized": 66480
+      }
+    },
+    {
+      "size": 2048,
+      "operation": "precomputed",
+      "seconds": {
+        "old": 0.000464292,
+        "base": 0.001655,
+        "optimized": 0.000383792
+      },
+      "optimized_over_base": 0.23189848942598187,
+      "optimized_over_old": 0.8266177319445521,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 136384,
+        "base": 396627,
+        "optimized": 246900
+      }
+    },
+    {
+      "size": 2048,
+      "operation": "cluster_tree",
+      "seconds": {
+        "old": 0.000137542,
+        "base": 0.000242625,
+        "optimized": 0.0002345
+      },
+      "optimized_over_base": 0.9665121071612571,
+      "optimized_over_old": 1.7049337656861179,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 91872,
+        "base": 183573,
+        "optimized": 135536
+      }
+    },
+    {
+      "size": 2048,
+      "operation": "topic_hierarchy",
+      "seconds": {
+        "old": 0.000314958,
+        "base": 0.000344333,
+        "optimized": 5.5459e-05
+      },
+      "optimized_over_base": 0.16106211138636145,
+      "optimized_over_old": 0.17608379529969076,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 7724,
+        "base": 10236,
+        "optimized": 8132
+      }
+    },
+    {
+      "size": 2048,
+      "operation": "legacy_read",
+      "seconds": {
+        "old": 0.0070275,
+        "base": 0.015891375,
+        "optimized": 0.011903667
+      },
+      "optimized_over_base": 0.7490646341175637,
+      "optimized_over_old": 1.6938693703308432,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 1264048,
+        "base": 1353139,
+        "optimized": 1353179
+      }
+    },
+    {
+      "size": 2048,
+      "operation": "legacy_fixture",
+      "seconds": {
+        "old": 0.270373584,
+        "base": 0.327527084,
+        "optimized": 0.2956305
+      },
+      "optimized_over_base": 0.9026139041374667,
+      "optimized_over_old": 1.0934148803531043,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 112744757,
+        "base": 126526954,
+        "optimized": 126526202
+      }
+    },
+    {
+      "size": 8192,
+      "operation": "centroids",
+      "seconds": {
+        "old": 0.000356542,
+        "base": 0.00046875,
+        "optimized": 0.000408834
+      },
+      "optimized_over_base": 0.8721792,
+      "optimized_over_old": 1.1466643480992422,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 133952,
+        "base": 264624,
+        "optimized": 264624
+      }
+    },
+    {
+      "size": 8192,
+      "operation": "precomputed",
+      "seconds": {
+        "old": 0.002332791,
+        "base": 0.006735334,
+        "optimized": 0.001486541
+      },
+      "optimized_over_base": 0.22070783720599454,
+      "optimized_over_old": 0.6372371121116295,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 535712,
+        "base": 1571541,
+        "optimized": 975893
+      }
+    },
+    {
+      "size": 8192,
+      "operation": "cluster_tree",
+      "seconds": {
+        "old": 0.0010625,
+        "base": 0.00103025,
+        "optimized": 0.001018417
+      },
+      "optimized_over_base": 0.9885144382431449,
+      "optimized_over_old": 0.9585101176470587,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 362176,
+        "base": 725569,
+        "optimized": 530650
+      }
+    },
+    {
+      "size": 8192,
+      "operation": "topic_hierarchy",
+      "seconds": {
+        "old": 0.001315791,
+        "base": 0.001353209,
+        "optimized": 0.00019
+      },
+      "optimized_over_base": 0.14040698812969765,
+      "optimized_over_old": 0.1443998324961943,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 71828,
+        "base": 81404,
+        "optimized": 73108
+      }
+    },
+    {
+      "size": 8192,
+      "operation": "legacy_read",
+      "seconds": {
+        "old": 0.017356292,
+        "base": 0.047845083,
+        "optimized": 0.026988375
+      },
+      "optimized_over_base": 0.5640783400877369,
+      "optimized_over_old": 1.5549620276035918,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 4737484,
+        "base": 5268522,
+        "optimized": 5277152
+      }
+    },
+    {
+      "size": 32768,
+      "operation": "centroids",
+      "seconds": {
+        "old": 0.001484,
+        "base": 0.00189175,
+        "optimized": 0.001786417
+      },
+      "optimized_over_base": 0.9443198097000132,
+      "optimized_over_old": 1.2037850404312669,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 267072,
+        "base": 528816,
+        "optimized": 528816
+      }
+    },
+    {
+      "size": 32768,
+      "operation": "precomputed",
+      "seconds": {
+        "old": 0.010271333,
+        "base": 0.021182291,
+        "optimized": 0.006393959
+      },
+      "optimized_over_base": 0.3018539873708656,
+      "optimized_over_old": 0.6225052775525826,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 1765184,
+        "base": 6130604,
+        "optimized": 3748950
+      }
+    },
+    {
+      "size": 32768,
+      "operation": "cluster_tree",
+      "seconds": {
+        "old": 0.005677792,
+        "base": 0.00544575,
+        "optimized": 0.005285292
+      },
+      "optimized_over_base": 0.9705351879906348,
+      "optimized_over_old": 0.9308710146479475,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 1419616,
+        "base": 2878781,
+        "optimized": 2105118
+      }
+    },
+    {
+      "size": 32768,
+      "operation": "topic_hierarchy",
+      "seconds": {
+        "old": 0.005703583,
+        "base": 0.005958834,
+        "optimized": 0.000444084
+      },
+      "optimized_over_base": 0.07452531820822665,
+      "optimized_over_old": 0.07786053082772706,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 161564,
+        "base": 180732,
+        "optimized": 164308
+      }
+    },
+    {
+      "size": 32768,
+      "operation": "legacy_read",
+      "seconds": {
+        "old": 0.05525725,
+        "base": 0.159723208,
+        "optimized": 0.0804985
+      },
+      "optimized_over_base": 0.5039874981724635,
+      "optimized_over_old": 1.456795262160169,
+      "median_separate_tracemalloc_peak_bytes": {
+        "old": 18669832,
+        "base": 20756261,
+        "optimized": 20756659
+      }
+    }
+  ]
+}

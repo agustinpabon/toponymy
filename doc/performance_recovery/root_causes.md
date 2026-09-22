@@ -48,9 +48,10 @@ validation. Do not trust persistent caches or mutable estimator parameters.
 
 ## Hierarchy
 
-The published phrase is not enough to unambiguously distinguish label-to-tree
-construction from plotting.construct_topic_hierarchy, so the local harness
-will measure both explicitly. OLD's Numba label-to-tree implementation relies
+The request's reference to OLD's Numba implementation identifies label-to-tree
+construction (build_cluster_tree) as the primary hierarchy operation. The local
+harness also measures plotting.construct_topic_hierarchy separately as an
+additional consumer of canonical memberships. OLD's Numba label-to-tree implementation relies
 on dense IDs and does not enforce complete containment. Restoring it would
 regress sparse-ID and crossing/noise semantics.
 

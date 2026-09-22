@@ -1,0 +1,5 @@
+# Keep raw measurement evidence available while folding generated data in reviews.
+results/manifest.json linguist-generated=true
+results/raw/*.json linguist-generated=true
+results/worker-logs.json linguist-generated=true
+validation/dependency-audit*.json linguist-generated=true

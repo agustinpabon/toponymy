@@ -1,0 +1,274 @@
+{
+  "totals": {
+    "covered_lines": 5028,
+    "num_statements": 5562,
+    "percent_covered": 90.39913700107874,
+    "percent_covered_display": "90",
+    "missing_lines": 534,
+    "excluded_lines": 24,
+    "percent_statements_covered": 90.39913700107874,
+    "percent_statements_covered_display": "90"
+  },
+  "files": {
+    "toponymy/__init__.py": {
+      "covered_lines": 12,
+      "num_statements": 16,
+      "percent_covered": 75.0,
+      "percent_covered_display": "75",
+      "missing_lines": 4,
+      "excluded_lines": 0,
+      "percent_statements_covered": 75.0,
+      "percent_statements_covered_display": "75"
+    },
+    "toponymy/_evoc.py": {
+      "covered_lines": 85,
+      "num_statements": 90,
+      "percent_covered": 94.44444444444444,
+      "percent_covered_display": "94",
+      "missing_lines": 5,
+      "excluded_lines": 0,
+      "percent_statements_covered": 94.44444444444444,
+      "percent_statements_covered_display": "94"
+    },
+    "toponymy/_utils.py": {
+      "covered_lines": 46,
+      "num_statements": 49,
+      "percent_covered": 93.87755102040816,
+      "percent_covered_display": "94",
+      "missing_lines": 3,
+      "excluded_lines": 0,
+      "percent_statements_covered": 93.87755102040816,
+      "percent_statements_covered_display": "94"
+    },
+    "toponymy/audit.py": {
+      "covered_lines": 119,
+      "num_statements": 129,
+      "percent_covered": 92.24806201550388,
+      "percent_covered_display": "92",
+      "missing_lines": 10,
+      "excluded_lines": 0,
+      "percent_statements_covered": 92.24806201550388,
+      "percent_statements_covered_display": "92"
+    },
+    "toponymy/clustering.py": {
+      "covered_lines": 291,
+      "num_statements": 298,
+      "percent_covered": 97.6510067114094,
+      "percent_covered_display": "98",
+      "missing_lines": 7,
+      "excluded_lines": 0,
+      "percent_statements_covered": 97.6510067114094,
+      "percent_statements_covered_display": "98"
+    },
+    "toponymy/debug_logging.py": {
+      "covered_lines": 34,
+      "num_statements": 36,
+      "percent_covered": 94.44444444444444,
+      "percent_covered_display": "94",
+      "missing_lines": 2,
+      "excluded_lines": 0,
+      "percent_statements_covered": 94.44444444444444,
+      "percent_statements_covered_display": "94"
+    },
+    "toponymy/embedding_wrappers.py": {
+      "covered_lines": 124,
+      "num_statements": 145,
+      "percent_covered": 85.51724137931035,
+      "percent_covered_display": "86",
+      "missing_lines": 21,
+      "excluded_lines": 0,
+      "percent_statements_covered": 85.51724137931035,
+      "percent_statements_covered_display": "86"
+    },
+    "toponymy/evaluation.py": {
+      "covered_lines": 203,
+      "num_statements": 203,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": 0,
+      "excluded_lines": 0,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100"
+    },
+    "toponymy/exemplar_texts.py": {
+      "covered_lines": 144,
+      "num_statements": 166,
+      "percent_covered": 86.74698795180723,
+      "percent_covered_display": "87",
+      "missing_lines": 22,
+      "excluded_lines": 0,
+      "percent_statements_covered": 86.74698795180723,
+      "percent_statements_covered_display": "87"
+    },
+    "toponymy/feature_extraction.py": {
+      "covered_lines": 279,
+      "num_statements": 363,
+      "percent_covered": 76.85950413223141,
+      "percent_covered_display": "77",
+      "missing_lines": 84,
+      "excluded_lines": 0,
+      "percent_statements_covered": 76.85950413223141,
+      "percent_statements_covered_display": "77"
+    },
+    "toponymy/keyphrases.py": {
+      "covered_lines": 324,
+      "num_statements": 353,
+      "percent_covered": 91.78470254957507,
+      "percent_covered_display": "92",
+      "missing_lines": 29,
+      "excluded_lines": 21,
+      "percent_statements_covered": 91.78470254957507,
+      "percent_statements_covered_display": "92"
+    },
+    "toponymy/llm_wrappers.py": {
+      "covered_lines": 1046,
+      "num_statements": 1194,
+      "percent_covered": 87.60469011725293,
+      "percent_covered_display": "88",
+      "missing_lines": 148,
+      "excluded_lines": 0,
+      "percent_statements_covered": 87.60469011725293,
+      "percent_statements_covered_display": "88"
+    },
+    "toponymy/plotting.py": {
+      "covered_lines": 63,
+      "num_statements": 65,
+      "percent_covered": 96.92307692307692,
+      "percent_covered_display": "97",
+      "missing_lines": 2,
+      "excluded_lines": 0,
+      "percent_statements_covered": 96.92307692307692,
+      "percent_statements_covered_display": "97"
+    },
+    "toponymy/provider_batches.py": {
+      "covered_lines": 425,
+      "num_statements": 449,
+      "percent_covered": 94.65478841870824,
+      "percent_covered_display": "95",
+      "missing_lines": 24,
+      "excluded_lines": 0,
+      "percent_statements_covered": 94.65478841870824,
+      "percent_statements_covered_display": "95"
+    },
+    "toponymy/response_parsing.py": {
+      "covered_lines": 97,
+      "num_statements": 100,
+      "percent_covered": 97.0,
+      "percent_covered_display": "97",
+      "missing_lines": 3,
+      "excluded_lines": 0,
+      "percent_statements_covered": 97.0,
+      "percent_statements_covered_display": "97"
+    },
+    "toponymy/serialization.py": {
+      "covered_lines": 564,
+      "num_statements": 628,
+      "percent_covered": 89.80891719745223,
+      "percent_covered_display": "90",
+      "missing_lines": 64,
+      "excluded_lines": 0,
+      "percent_statements_covered": 89.80891719745223,
+      "percent_statements_covered_display": "90"
+    },
+    "toponymy/subtopics.py": {
+      "covered_lines": 154,
+      "num_statements": 167,
+      "percent_covered": 92.21556886227545,
+      "percent_covered_display": "92",
+      "missing_lines": 13,
+      "excluded_lines": 0,
+      "percent_statements_covered": 92.21556886227545,
+      "percent_statements_covered_display": "92"
+    },
+    "toponymy/templates.py": {
+      "covered_lines": 116,
+      "num_statements": 121,
+      "percent_covered": 95.86776859504133,
+      "percent_covered_display": "96",
+      "missing_lines": 5,
+      "excluded_lines": 0,
+      "percent_statements_covered": 95.86776859504133,
+      "percent_statements_covered_display": "96"
+    },
+    "toponymy/tools/notebook_data_load.py": {
+      "covered_lines": 71,
+      "num_statements": 72,
+      "percent_covered": 98.61111111111111,
+      "percent_covered_display": "99",
+      "missing_lines": 1,
+      "excluded_lines": 0,
+      "percent_statements_covered": 98.61111111111111,
+      "percent_statements_covered_display": "99"
+    },
+    "toponymy/tools/notebook_runner.py": {
+      "covered_lines": 73,
+      "num_statements": 98,
+      "percent_covered": 74.48979591836735,
+      "percent_covered_display": "74",
+      "missing_lines": 25,
+      "excluded_lines": 0,
+      "percent_statements_covered": 74.48979591836735,
+      "percent_statements_covered_display": "74"
+    },
+    "toponymy/tools/notebook_test_helpers.py": {
+      "covered_lines": 31,
+      "num_statements": 43,
+      "percent_covered": 72.09302325581395,
+      "percent_covered_display": "72",
+      "missing_lines": 12,
+      "excluded_lines": 0,
+      "percent_statements_covered": 72.09302325581395,
+      "percent_statements_covered_display": "72"
+    },
+    "toponymy/topic_tree.py": {
+      "covered_lines": 129,
+      "num_statements": 145,
+      "percent_covered": 88.96551724137932,
+      "percent_covered_display": "89",
+      "missing_lines": 16,
+      "excluded_lines": 0,
+      "percent_statements_covered": 88.96551724137932,
+      "percent_statements_covered_display": "89"
+    },
+    "toponymy/toponymy.py": {
+      "covered_lines": 354,
+      "num_statements": 377,
+      "percent_covered": 93.89920424403184,
+      "percent_covered_display": "94",
+      "missing_lines": 23,
+      "excluded_lines": 0,
+      "percent_statements_covered": 93.89920424403184,
+      "percent_statements_covered_display": "94"
+    },
+    "toponymy/treemap.py": {
+      "covered_lines": 51,
+      "num_statements": 54,
+      "percent_covered": 94.44444444444444,
+      "percent_covered_display": "94",
+      "missing_lines": 3,
+      "excluded_lines": 0,
+      "percent_statements_covered": 94.44444444444444,
+      "percent_statements_covered_display": "94"
+    },
+    "toponymy/types.py": {
+      "covered_lines": 89,
+      "num_statements": 89,
+      "percent_covered": 100.0,
+      "percent_covered_display": "100",
+      "missing_lines": 0,
+      "excluded_lines": 3,
+      "percent_statements_covered": 100.0,
+      "percent_statements_covered_display": "100"
+    },
+    "toponymy/utility_functions.py": {
+      "covered_lines": 104,
+      "num_statements": 112,
+      "percent_covered": 92.85714285714286,
+      "percent_covered_display": "93",
+      "missing_lines": 8,
+      "excluded_lines": 0,
+      "percent_statements_covered": 92.85714285714286,
+      "percent_statements_covered_display": "93"
+    }
+  }
+}

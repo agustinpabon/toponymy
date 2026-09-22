@@ -26,5 +26,3 @@
        40    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
        20    0.000    0.000    0.000    0.000 {built-in method builtins.getattr}
        20    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
-
-

@@ -1,0 +1,489 @@
+* Getting build dependencies for sdist...
+ModuleNotFoundError while trying to load entry-point nosetests: No module named 'imp'
+running egg_info
+creating toponymy.egg-info
+writing toponymy.egg-info/PKG-INFO
+writing dependency_links to toponymy.egg-info/dependency_links.txt
+writing requirements to toponymy.egg-info/requires.txt
+writing top-level names to toponymy.egg-info/top_level.txt
+writing manifest file 'toponymy.egg-info/SOURCES.txt'
+reading manifest file 'toponymy.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+adding license file 'LICENSE'
+writing manifest file 'toponymy.egg-info/SOURCES.txt'
+WARNING pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+* Building sdist...
+ModuleNotFoundError while trying to load entry-point nosetests: No module named 'imp'
+running sdist
+running egg_info
+writing toponymy.egg-info/PKG-INFO
+writing dependency_links to toponymy.egg-info/dependency_links.txt
+writing requirements to toponymy.egg-info/requires.txt
+writing top-level names to toponymy.egg-info/top_level.txt
+reading manifest file 'toponymy.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+adding license file 'LICENSE'
+writing manifest file 'toponymy.egg-info/SOURCES.txt'
+running check
+creating toponymy-0.6.0.dev0
+creating toponymy-0.6.0.dev0/doc
+creating toponymy-0.6.0.dev0/doc/benchmark_figures
+creating toponymy-0.6.0.dev0/doc/performance_recovery
+creating toponymy-0.6.0.dev0/doc/performance_recovery/validation
+creating toponymy-0.6.0.dev0/examples
+creating toponymy-0.6.0.dev0/tests
+creating toponymy-0.6.0.dev0/tests/data
+creating toponymy-0.6.0.dev0/tests/upstream
+creating toponymy-0.6.0.dev0/toponymy
+creating toponymy-0.6.0.dev0/toponymy.egg-info
+creating toponymy-0.6.0.dev0/toponymy/tools
+creating toponymy-0.6.0.dev0/toponymy/widgets/circlePacking/dist
+creating toponymy-0.6.0.dev0/toponymy/widgets/indentedTree/dist
+creating toponymy-0.6.0.dev0/toponymy/widgets/radialTidyTree/dist
+copying files to toponymy-0.6.0.dev0...
+copying CONTRIBUTING.md -> toponymy-0.6.0.dev0
+copying LICENSE -> toponymy-0.6.0.dev0
+copying MANIFEST.in -> toponymy-0.6.0.dev0
+copying README.rst -> toponymy-0.6.0.dev0
+copying pyproject.toml -> toponymy-0.6.0.dev0
+copying setup.py -> toponymy-0.6.0.dev0
+copying doc/api.rst -> toponymy-0.6.0.dev0/doc
+copying doc/api_embedding_wrappers.rst -> toponymy-0.6.0.dev0/doc
+copying doc/api_llm_wrappers.rst -> toponymy-0.6.0.dev0/doc
+copying doc/api_main_classes.rst -> toponymy-0.6.0.dev0/doc
+copying doc/basic_usage.ipynb -> toponymy-0.6.0.dev0/doc
+copying doc/benchmark_results.rst -> toponymy-0.6.0.dev0/doc
+copying doc/cluster_layers.rst -> toponymy-0.6.0.dev0/doc
+copying doc/clusterers.ipynb -> toponymy-0.6.0.dev0/doc
+copying doc/clustering_options.ipynb -> toponymy-0.6.0.dev0/doc
+copying doc/conf.py -> toponymy-0.6.0.dev0/doc
+copying doc/debugging_llm_runs.ipynb -> toponymy-0.6.0.dev0/doc
+copying doc/embedding_wrappers.rst -> toponymy-0.6.0.dev0/doc
+copying doc/example_2D_plot.png -> toponymy-0.6.0.dev0/doc
+copying doc/example_labeled_plot.png -> toponymy-0.6.0.dev0/doc
+copying doc/exemplar_texts.ipynb -> toponymy-0.6.0.dev0/doc
+copying doc/historical_examples.rst -> toponymy-0.6.0.dev0/doc
+copying doc/how_toponymy_works.ipynb -> toponymy-0.6.0.dev0/doc
+copying doc/index.rst -> toponymy-0.6.0.dev0/doc
+copying doc/installation.rst -> toponymy-0.6.0.dev0/doc
+copying doc/intro.rst -> toponymy-0.6.0.dev0/doc
+copying doc/keyphrases.ipynb -> toponymy-0.6.0.dev0/doc
+copying doc/llm_wrappers.rst -> toponymy-0.6.0.dev0/doc
+copying doc/migration.rst -> toponymy-0.6.0.dev0/doc
+copying doc/params_and_options.rst -> toponymy-0.6.0.dev0/doc
+copying doc/plscan_clusterer.rst -> toponymy-0.6.0.dev0/doc
+copying doc/requirements.txt -> toponymy-0.6.0.dev0/doc
+copying doc/saving_loading.ipynb -> toponymy-0.6.0.dev0/doc
+copying doc/test_audit_functionality.ipynb -> toponymy-0.6.0.dev0/doc
+copying doc/test_max_layers_newsgroups.ipynb -> toponymy-0.6.0.dev0/doc
+copying doc/topic_modeling_flow_representation.png -> toponymy-0.6.0.dev0/doc
+copying doc/topic_summaries.ipynb -> toponymy-0.6.0.dev0/doc
+copying doc/toponymy_logo_rtd.png -> toponymy-0.6.0.dev0/doc
+copying doc/toponymy_no_text.png -> toponymy-0.6.0.dev0/doc
+copying doc/toponymy_text_horizontal.png -> toponymy-0.6.0.dev0/doc
+copying doc/benchmark_figures/architecture-overview.png -> toponymy-0.6.0.dev0/doc/benchmark_figures
+copying doc/benchmark_figures/architecture-overview.svg -> toponymy-0.6.0.dev0/doc/benchmark_figures
+copying doc/benchmark_figures/process-memory.png -> toponymy-0.6.0.dev0/doc/benchmark_figures
+copying doc/benchmark_figures/process-memory.svg -> toponymy-0.6.0.dev0/doc/benchmark_figures
+copying doc/benchmark_figures/runtime-comparison.png -> toponymy-0.6.0.dev0/doc/benchmark_figures
+copying doc/benchmark_figures/runtime-comparison.svg -> toponymy-0.6.0.dev0/doc/benchmark_figures
+copying doc/benchmark_figures/runtime-ratios.png -> toponymy-0.6.0.dev0/doc/benchmark_figures
+copying doc/benchmark_figures/runtime-ratios.svg -> toponymy-0.6.0.dev0/doc/benchmark_figures
+copying doc/benchmark_figures/validation-summary.png -> toponymy-0.6.0.dev0/doc/benchmark_figures
+copying doc/benchmark_figures/validation-summary.svg -> toponymy-0.6.0.dev0/doc/benchmark_figures
+copying doc/performance_recovery/benchmark.py -> toponymy-0.6.0.dev0/doc/performance_recovery
+copying doc/performance_recovery/cluster_tree-base-profile.txt -> toponymy-0.6.0.dev0/doc/performance_recovery
+copying doc/performance_recovery/legacy_fixture-base-profile.txt -> toponymy-0.6.0.dev0/doc/performance_recovery
+copying doc/performance_recovery/precomputed-base-profile.txt -> toponymy-0.6.0.dev0/doc/performance_recovery
+copying doc/performance_recovery/profile_centroids.py -> toponymy-0.6.0.dev0/doc/performance_recovery
+copying doc/performance_recovery/run_campaign.py -> toponymy-0.6.0.dev0/doc/performance_recovery
+copying doc/performance_recovery/widget_hierarchy-base-profile.txt -> toponymy-0.6.0.dev0/doc/performance_recovery
+copying doc/performance_recovery/validation/mypy-base.txt -> toponymy-0.6.0.dev0/doc/performance_recovery/validation
+copying doc/performance_recovery/validation/mypy-optimized.txt -> toponymy-0.6.0.dev0/doc/performance_recovery/validation
+copying examples/20newsgroups_embedded_150.parquet -> toponymy-0.6.0.dev0/examples
+copying examples/ai_arxiv_coordinates.npz.npy -> toponymy-0.6.0.dev0/examples
+copying examples/ai_arxiv_papers.zip -> toponymy-0.6.0.dev0/examples
+copying examples/ai_arxiv_vectors.npy -> toponymy-0.6.0.dev0/examples
+copying examples/local_pipeline.py -> toponymy-0.6.0.dev0/examples
+copying tests/conftest.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_archive_boundaries.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_archive_identity.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_clustering_adapters.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_clustering_characterization.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_clustering_contracts.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_clustering_quality.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_doc_notebooks.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_embedding_boundaries.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_evaluation_protocol.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_evoc_fitted_state.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_evoc_isolation.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_evoc_windows_cleanup.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_feature_extraction_contracts.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_keyphrase_boundaries.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_lance_integrity.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_migration_regressions.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_name_state.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_numerical_boundaries.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_partial_prompt_storage.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_performance_centroids.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_performance_clustering.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_performance_persistence.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_persistence_contracts.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_pipeline_contracts.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_prepared_state.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_prompt_contracts.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_provider_adversarial.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_provider_batch_lifecycle.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_provider_batch_transports.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_provider_compatibility.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_provider_contracts.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_provider_native_failures.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_provider_options.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_provider_policy_boundaries.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_result_consumers.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_reuse_and_renderings.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_selection_numerics.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_semantic_subtopics.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_subtopic_boundaries.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_template_boundaries.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_template_compilation.py -> toponymy-0.6.0.dev0/tests
+copying tests/test_treeshap_extractor.py -> toponymy-0.6.0.dev0/tests
+copying tests/data/mock-20ng.tm.zip -> toponymy-0.6.0.dev0/tests/data
+copying tests/data/object_vectors.npy -> toponymy-0.6.0.dev0/tests/data
+copying tests/data/subtopic_objects.json -> toponymy-0.6.0.dev0/tests/data
+copying tests/data/subtopic_vectors.npy -> toponymy-0.6.0.dev0/tests/data
+copying tests/data/test_objects.json -> toponymy-0.6.0.dev0/tests/data
+copying tests/data/topic_objects.json -> toponymy-0.6.0.dev0/tests/data
+copying tests/data/topic_vectors.npy -> toponymy-0.6.0.dev0/tests/data
+copying tests/upstream/conftest.py -> toponymy-0.6.0.dev0/tests/upstream
+copying tests/upstream/test__utils.py -> toponymy-0.6.0.dev0/tests/upstream
+copying tests/upstream/test_debug_logging.py -> toponymy-0.6.0.dev0/tests/upstream
+copying tests/upstream/test_embedding_wrappers.py -> toponymy-0.6.0.dev0/tests/upstream
+copying tests/upstream/test_exemplar_texts.py -> toponymy-0.6.0.dev0/tests/upstream
+copying tests/upstream/test_keyphrases.py -> toponymy-0.6.0.dev0/tests/upstream
+copying tests/upstream/test_notebook_tools.py -> toponymy-0.6.0.dev0/tests/upstream
+copying tests/upstream/test_subtopics.py -> toponymy-0.6.0.dev0/tests/upstream
+copying tests/upstream/test_templates.py -> toponymy-0.6.0.dev0/tests/upstream
+copying tests/upstream/test_topic_tree.py -> toponymy-0.6.0.dev0/tests/upstream
+copying tests/upstream/test_utility_functions.py -> toponymy-0.6.0.dev0/tests/upstream
+copying toponymy/__init__.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/_evoc.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/_utils.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/audit.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/clustering.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/debug_logging.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/embedding_wrappers.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/evaluation.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/exemplar_texts.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/feature_extraction.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/keyphrases.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/llm_wrappers.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/plotting.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/provider_batches.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/response_parsing.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/serialization.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/subtopics.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/templates.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/topic_tree.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/toponymy.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/treemap.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/types.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy/utility_functions.py -> toponymy-0.6.0.dev0/toponymy
+copying toponymy.egg-info/PKG-INFO -> toponymy-0.6.0.dev0/toponymy.egg-info
+copying toponymy.egg-info/SOURCES.txt -> toponymy-0.6.0.dev0/toponymy.egg-info
+copying toponymy.egg-info/dependency_links.txt -> toponymy-0.6.0.dev0/toponymy.egg-info
+copying toponymy.egg-info/not-zip-safe -> toponymy-0.6.0.dev0/toponymy.egg-info
+copying toponymy.egg-info/requires.txt -> toponymy-0.6.0.dev0/toponymy.egg-info
+copying toponymy.egg-info/top_level.txt -> toponymy-0.6.0.dev0/toponymy.egg-info
+copying toponymy/tools/notebook_data_load.py -> toponymy-0.6.0.dev0/toponymy/tools
+copying toponymy/tools/notebook_runner.py -> toponymy-0.6.0.dev0/toponymy/tools
+copying toponymy/tools/notebook_test_helpers.py -> toponymy-0.6.0.dev0/toponymy/tools
+copying toponymy/widgets/circlePacking/dist/widget.css -> toponymy-0.6.0.dev0/toponymy/widgets/circlePacking/dist
+copying toponymy/widgets/circlePacking/dist/widget.js -> toponymy-0.6.0.dev0/toponymy/widgets/circlePacking/dist
+copying toponymy/widgets/indentedTree/dist/widget.css -> toponymy-0.6.0.dev0/toponymy/widgets/indentedTree/dist
+copying toponymy/widgets/indentedTree/dist/widget.js -> toponymy-0.6.0.dev0/toponymy/widgets/indentedTree/dist
+copying toponymy/widgets/radialTidyTree/dist/widget.css -> toponymy-0.6.0.dev0/toponymy/widgets/radialTidyTree/dist
+copying toponymy/widgets/radialTidyTree/dist/widget.js -> toponymy-0.6.0.dev0/toponymy/widgets/radialTidyTree/dist
+copying toponymy.egg-info/SOURCES.txt -> toponymy-0.6.0.dev0/toponymy.egg-info
+Writing toponymy-0.6.0.dev0/setup.cfg
+Creating tar archive
+removing 'toponymy-0.6.0.dev0' (and everything under it)
+WARNING pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+* Building wheel from sdist
+* Getting build dependencies for wheel...
+ModuleNotFoundError while trying to load entry-point nosetests: No module named 'imp'
+running egg_info
+writing toponymy.egg-info/PKG-INFO
+writing dependency_links to toponymy.egg-info/dependency_links.txt
+writing requirements to toponymy.egg-info/requires.txt
+writing top-level names to toponymy.egg-info/top_level.txt
+reading manifest file 'toponymy.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+adding license file 'LICENSE'
+writing manifest file 'toponymy.egg-info/SOURCES.txt'
+WARNING pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+* Building wheel...
+ModuleNotFoundError while trying to load entry-point nosetests: No module named 'imp'
+running bdist_wheel
+running build
+running build_py
+creating build/lib/toponymy
+copying toponymy/utility_functions.py -> build/lib/toponymy
+copying toponymy/response_parsing.py -> build/lib/toponymy
+copying toponymy/provider_batches.py -> build/lib/toponymy
+copying toponymy/clustering.py -> build/lib/toponymy
+copying toponymy/keyphrases.py -> build/lib/toponymy
+copying toponymy/audit.py -> build/lib/toponymy
+copying toponymy/treemap.py -> build/lib/toponymy
+copying toponymy/plotting.py -> build/lib/toponymy
+copying toponymy/evaluation.py -> build/lib/toponymy
+copying toponymy/llm_wrappers.py -> build/lib/toponymy
+copying toponymy/__init__.py -> build/lib/toponymy
+copying toponymy/debug_logging.py -> build/lib/toponymy
+copying toponymy/types.py -> build/lib/toponymy
+copying toponymy/feature_extraction.py -> build/lib/toponymy
+copying toponymy/exemplar_texts.py -> build/lib/toponymy
+copying toponymy/toponymy.py -> build/lib/toponymy
+copying toponymy/templates.py -> build/lib/toponymy
+copying toponymy/_evoc.py -> build/lib/toponymy
+copying toponymy/embedding_wrappers.py -> build/lib/toponymy
+copying toponymy/topic_tree.py -> build/lib/toponymy
+copying toponymy/subtopics.py -> build/lib/toponymy
+copying toponymy/serialization.py -> build/lib/toponymy
+copying toponymy/_utils.py -> build/lib/toponymy
+creating build/lib/toponymy/tools
+copying toponymy/tools/notebook_runner.py -> build/lib/toponymy/tools
+copying toponymy/tools/notebook_test_helpers.py -> build/lib/toponymy/tools
+copying toponymy/tools/notebook_data_load.py -> build/lib/toponymy/tools
+running egg_info
+writing toponymy.egg-info/PKG-INFO
+writing dependency_links to toponymy.egg-info/dependency_links.txt
+writing requirements to toponymy.egg-info/requires.txt
+writing top-level names to toponymy.egg-info/top_level.txt
+reading manifest file 'toponymy.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+adding license file 'LICENSE'
+writing manifest file 'toponymy.egg-info/SOURCES.txt'
+creating build/lib/toponymy/widgets/circlePacking/dist
+copying toponymy/widgets/circlePacking/dist/widget.css -> build/lib/toponymy/widgets/circlePacking/dist
+copying toponymy/widgets/circlePacking/dist/widget.js -> build/lib/toponymy/widgets/circlePacking/dist
+creating build/lib/toponymy/widgets/indentedTree/dist
+copying toponymy/widgets/indentedTree/dist/widget.css -> build/lib/toponymy/widgets/indentedTree/dist
+copying toponymy/widgets/indentedTree/dist/widget.js -> build/lib/toponymy/widgets/indentedTree/dist
+creating build/lib/toponymy/widgets/radialTidyTree/dist
+copying toponymy/widgets/radialTidyTree/dist/widget.css -> build/lib/toponymy/widgets/radialTidyTree/dist
+copying toponymy/widgets/radialTidyTree/dist/widget.js -> build/lib/toponymy/widgets/radialTidyTree/dist
+installing to build/bdist.macosx-11.0-arm64/wheel
+running install
+running install_lib
+creating build/bdist.macosx-11.0-arm64/wheel
+creating build/bdist.macosx-11.0-arm64/wheel/toponymy
+copying build/lib/toponymy/utility_functions.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+creating build/bdist.macosx-11.0-arm64/wheel/toponymy/tools
+copying build/lib/toponymy/tools/notebook_runner.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy/tools
+copying build/lib/toponymy/tools/notebook_test_helpers.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy/tools
+copying build/lib/toponymy/tools/notebook_data_load.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy/tools
+copying build/lib/toponymy/response_parsing.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/provider_batches.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/clustering.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/keyphrases.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/audit.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/treemap.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/plotting.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/evaluation.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/llm_wrappers.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/__init__.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/debug_logging.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/types.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/feature_extraction.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/exemplar_texts.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/toponymy.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/templates.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/_evoc.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/embedding_wrappers.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/topic_tree.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/subtopics.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+copying build/lib/toponymy/serialization.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+creating build/bdist.macosx-11.0-arm64/wheel/toponymy/widgets
+creating build/bdist.macosx-11.0-arm64/wheel/toponymy/widgets/radialTidyTree
+creating build/bdist.macosx-11.0-arm64/wheel/toponymy/widgets/radialTidyTree/dist
+copying build/lib/toponymy/widgets/radialTidyTree/dist/widget.js -> build/bdist.macosx-11.0-arm64/wheel/./toponymy/widgets/radialTidyTree/dist
+copying build/lib/toponymy/widgets/radialTidyTree/dist/widget.css -> build/bdist.macosx-11.0-arm64/wheel/./toponymy/widgets/radialTidyTree/dist
+creating build/bdist.macosx-11.0-arm64/wheel/toponymy/widgets/circlePacking
+creating build/bdist.macosx-11.0-arm64/wheel/toponymy/widgets/circlePacking/dist
+copying build/lib/toponymy/widgets/circlePacking/dist/widget.js -> build/bdist.macosx-11.0-arm64/wheel/./toponymy/widgets/circlePacking/dist
+copying build/lib/toponymy/widgets/circlePacking/dist/widget.css -> build/bdist.macosx-11.0-arm64/wheel/./toponymy/widgets/circlePacking/dist
+creating build/bdist.macosx-11.0-arm64/wheel/toponymy/widgets/indentedTree
+creating build/bdist.macosx-11.0-arm64/wheel/toponymy/widgets/indentedTree/dist
+copying build/lib/toponymy/widgets/indentedTree/dist/widget.js -> build/bdist.macosx-11.0-arm64/wheel/./toponymy/widgets/indentedTree/dist
+copying build/lib/toponymy/widgets/indentedTree/dist/widget.css -> build/bdist.macosx-11.0-arm64/wheel/./toponymy/widgets/indentedTree/dist
+copying build/lib/toponymy/_utils.py -> build/bdist.macosx-11.0-arm64/wheel/./toponymy
+running install_egg_info
+Copying toponymy.egg-info to build/bdist.macosx-11.0-arm64/wheel/./toponymy-0.6.0.dev0-py3.12.egg-info
+running install_scripts
+creating build/bdist.macosx-11.0-arm64/wheel/toponymy-0.6.0.dev0.dist-info/WHEEL
+creating '/Users/agus/Developer/toponymy-perf/dist/.tmp-yc0sfvxd/toponymy-0.6.0.dev0-py3-none-any.whl' and adding 'build/bdist.macosx-11.0-arm64/wheel' to it
+adding 'toponymy/__init__.py'
+adding 'toponymy/_evoc.py'
+adding 'toponymy/_utils.py'
+adding 'toponymy/audit.py'
+adding 'toponymy/clustering.py'
+adding 'toponymy/debug_logging.py'
+adding 'toponymy/embedding_wrappers.py'
+adding 'toponymy/evaluation.py'
+adding 'toponymy/exemplar_texts.py'
+adding 'toponymy/feature_extraction.py'
+adding 'toponymy/keyphrases.py'
+adding 'toponymy/llm_wrappers.py'
+adding 'toponymy/plotting.py'
+adding 'toponymy/provider_batches.py'
+adding 'toponymy/response_parsing.py'
+adding 'toponymy/serialization.py'
+adding 'toponymy/subtopics.py'
+adding 'toponymy/templates.py'
+adding 'toponymy/topic_tree.py'
+adding 'toponymy/toponymy.py'
+adding 'toponymy/treemap.py'
+adding 'toponymy/types.py'
+adding 'toponymy/utility_functions.py'
+adding 'toponymy/tools/notebook_data_load.py'
+adding 'toponymy/tools/notebook_runner.py'
+adding 'toponymy/tools/notebook_test_helpers.py'
+adding 'toponymy/widgets/circlePacking/dist/widget.css'
+adding 'toponymy/widgets/circlePacking/dist/widget.js'
+adding 'toponymy/widgets/indentedTree/dist/widget.css'
+adding 'toponymy/widgets/indentedTree/dist/widget.js'
+adding 'toponymy/widgets/radialTidyTree/dist/widget.css'
+adding 'toponymy/widgets/radialTidyTree/dist/widget.js'
+adding 'toponymy-0.6.0.dev0.dist-info/licenses/LICENSE'
+adding 'toponymy-0.6.0.dev0.dist-info/METADATA'
+adding 'toponymy-0.6.0.dev0.dist-info/WHEEL'
+adding 'toponymy-0.6.0.dev0.dist-info/top_level.txt'
+adding 'toponymy-0.6.0.dev0.dist-info/RECORD'
+removing build/bdist.macosx-11.0-arm64/wheel
+WARNING pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+WARNING Package 'toponymy.widgets.circlePacking.dist' is absent from the `packages` configuration.
+!!
+
+        ********************************************************************************
+        ############################
+        # Package would be ignored #
+        ############################
+        Python recognizes 'toponymy.widgets.circlePacking.dist' as an importable package[^1],
+        but it is absent from setuptools' `packages` configuration.
+
+        This leads to an ambiguous overall configuration. If you want to distribute this
+        package, please make sure that 'toponymy.widgets.circlePacking.dist' is explicitly added
+        to the `packages` configuration field.
+
+        Alternatively, you can also rely on setuptools' discovery methods
+        (for example by using `find_namespace_packages(...)`/`find_namespace:`
+        instead of `find_packages(...)`/`find:`).
+
+        You can read more about "package discovery" on setuptools documentation page:
+
+        - https://setuptools.pypa.io/en/latest/userguide/package_discovery.html
+
+        If you don't want 'toponymy.widgets.circlePacking.dist' to be distributed and are
+        already explicitly excluding 'toponymy.widgets.circlePacking.dist' via
+        `find_namespace_packages(...)/find_namespace` or `find_packages(...)/find`,
+        you can try to use `exclude_package_data`, or `include-package-data=False` in
+        combination with a more fine grained `package-data` configuration.
+
+        You can read more about "package data files" on setuptools documentation page:
+
+        - https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+
+
+        [^1]: For Python, any directory (with suitable naming) can be imported,
+              even if it does not contain any `.py` files.
+              On the other hand, currently there is no concept of package data
+              directory, all directories are treated like packages.
+        ********************************************************************************
+
+!!
+WARNING Package 'toponymy.widgets.indentedTree.dist' is absent from the `packages` configuration.
+!!
+
+        ********************************************************************************
+        ############################
+        # Package would be ignored #
+        ############################
+        Python recognizes 'toponymy.widgets.indentedTree.dist' as an importable package[^1],
+        but it is absent from setuptools' `packages` configuration.
+
+        This leads to an ambiguous overall configuration. If you want to distribute this
+        package, please make sure that 'toponymy.widgets.indentedTree.dist' is explicitly added
+        to the `packages` configuration field.
+
+        Alternatively, you can also rely on setuptools' discovery methods
+        (for example by using `find_namespace_packages(...)`/`find_namespace:`
+        instead of `find_packages(...)`/`find:`).
+
+        You can read more about "package discovery" on setuptools documentation page:
+
+        - https://setuptools.pypa.io/en/latest/userguide/package_discovery.html
+
+        If you don't want 'toponymy.widgets.indentedTree.dist' to be distributed and are
+        already explicitly excluding 'toponymy.widgets.indentedTree.dist' via
+        `find_namespace_packages(...)/find_namespace` or `find_packages(...)/find`,
+        you can try to use `exclude_package_data`, or `include-package-data=False` in
+        combination with a more fine grained `package-data` configuration.
+
+        You can read more about "package data files" on setuptools documentation page:
+
+        - https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+
+
+        [^1]: For Python, any directory (with suitable naming) can be imported,
+              even if it does not contain any `.py` files.
+              On the other hand, currently there is no concept of package data
+              directory, all directories are treated like packages.
+        ********************************************************************************
+
+!!
+WARNING Package 'toponymy.widgets.radialTidyTree.dist' is absent from the `packages` configuration.
+!!
+
+        ********************************************************************************
+        ############################
+        # Package would be ignored #
+        ############################
+        Python recognizes 'toponymy.widgets.radialTidyTree.dist' as an importable package[^1],
+        but it is absent from setuptools' `packages` configuration.
+
+        This leads to an ambiguous overall configuration. If you want to distribute this
+        package, please make sure that 'toponymy.widgets.radialTidyTree.dist' is explicitly added
+        to the `packages` configuration field.
+
+        Alternatively, you can also rely on setuptools' discovery methods
+        (for example by using `find_namespace_packages(...)`/`find_namespace:`
+        instead of `find_packages(...)`/`find:`).
+
+        You can read more about "package discovery" on setuptools documentation page:
+
+        - https://setuptools.pypa.io/en/latest/userguide/package_discovery.html
+
+        If you don't want 'toponymy.widgets.radialTidyTree.dist' to be distributed and are
+        already explicitly excluding 'toponymy.widgets.radialTidyTree.dist' via
+        `find_namespace_packages(...)/find_namespace` or `find_packages(...)/find`,
+        you can try to use `exclude_package_data`, or `include-package-data=False` in
+        combination with a more fine grained `package-data` configuration.
+
+        You can read more about "package data files" on setuptools documentation page:
+
+        - https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+
+
+        [^1]: For Python, any directory (with suitable naming) can be imported,
+              even if it does not contain any `.py` files.
+              On the other hand, currently there is no concept of package data
+              directory, all directories are treated like packages.
+        ********************************************************************************
+
+!!
+Successfully built toponymy-0.6.0.dev0.tar.gz and toponymy-0.6.0.dev0-py3-none-any.whl

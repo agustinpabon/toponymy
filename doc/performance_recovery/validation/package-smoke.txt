@@ -1,0 +1,2 @@
+Installed noneditable wheel: /tmp/toponymy-perf-wheel-smoke/lib/python3.12/site-packages/toponymy/__init__.py
+Clustering, actual legacy read, ZIP and Lance round trips passed.

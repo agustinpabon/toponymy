@@ -1,0 +1,115 @@
+[01mRunning Sphinx v9.1.0[39;49;00m
+[01mloading translations [en]... [39;49;00mdone
+[autosummary] generating autosummary for: api.rst, api_embedding_wrappers.rst, api_llm_wrappers.rst, api_main_classes.rst, basic_usage.ipynb, benchmark_results.rst, cluster_layers.rst, clusterers.ipynb, clustering_options.ipynb, debugging_llm_runs.ipynb, ..., intro.rst, keyphrases.ipynb, llm_wrappers.rst, migration.rst, params_and_options.rst, plscan_clusterer.rst, saving_loading.ipynb, test_audit_functionality.ipynb, test_max_layers_newsgroups.ipynb, topic_summaries.ipynb
+Writing evaluated template result to /private/tmp/toponymy-perf-sphinx/_static/nbsphinx-code-cells.css
+[01mbuilding [mo]: [39;49;00mall of 0 po files
+[01mwriting output... [39;49;00m
+[01mbuilding [html]: [39;49;00mall source files
+[01mupdating environment: [39;49;00m[new config] 26 added, 0 changed, 0 removed
+[01mreading sources... [39;49;00m[  4%] [35mapi[39;49;00m
+[01mreading sources... [39;49;00m[  8%] [35mapi_embedding_wrappers[39;49;00m
+[01mreading sources... [39;49;00m[ 12%] [35mapi_llm_wrappers[39;49;00m
+/Users/agus/Developer/toponymy-perf/.venv/lib/python3.12/site-packages/numpydoc/docscrape.py:426: UserWarning: Unknown section Parameters: in the docstring of AsyncLiteLLMNamer in /Users/agus/Developer/toponymy-perf/toponymy/llm_wrappers.py.
+  self[section] = content
+/Users/agus/Developer/toponymy-perf/.venv/lib/python3.12/site-packages/numpydoc/docscrape.py:426: UserWarning: Unknown section Attributes: in the docstring of AsyncLiteLLMNamer in /Users/agus/Developer/toponymy-perf/toponymy/llm_wrappers.py.
+  self[section] = content
+/Users/agus/Developer/toponymy-perf/.venv/lib/python3.12/site-packages/numpydoc/docscrape.py:426: UserWarning: Unknown section Parameters: in the docstring of HuggingFaceNamer in /Users/agus/Developer/toponymy-perf/toponymy/llm_wrappers.py.
+  self[section] = content
+/Users/agus/Developer/toponymy-perf/.venv/lib/python3.12/site-packages/numpydoc/docscrape.py:426: UserWarning: Unknown section Attributes: in the docstring of HuggingFaceNamer in /Users/agus/Developer/toponymy-perf/toponymy/llm_wrappers.py.
+  self[section] = content
+/Users/agus/Developer/toponymy-perf/.venv/lib/python3.12/site-packages/numpydoc/docscrape.py:426: UserWarning: Unknown section Parameters: in the docstring of LlamaCppNamer in /Users/agus/Developer/toponymy-perf/toponymy/llm_wrappers.py.
+  self[section] = content
+/Users/agus/Developer/toponymy-perf/.venv/lib/python3.12/site-packages/numpydoc/docscrape.py:426: UserWarning: Unknown section Attributes: in the docstring of LlamaCppNamer in /Users/agus/Developer/toponymy-perf/toponymy/llm_wrappers.py.
+  self[section] = content
+[01mreading sources... [39;49;00m[ 15%] [35mapi_main_classes[39;49;00m
+[01mreading sources... [39;49;00m[ 19%] [35mbasic_usage[39;49;00m
+[01mreading sources... [39;49;00m[ 23%] [35mbenchmark_results[39;49;00m
+[01mreading sources... [39;49;00m[ 27%] [35mcluster_layers[39;49;00m
+[01mreading sources... [39;49;00m[ 31%] [35mclusterers[39;49;00m
+[01mreading sources... [39;49;00m[ 35%] [35mclustering_options[39;49;00m
+[01mreading sources... [39;49;00m[ 38%] [35mdebugging_llm_runs[39;49;00m
+[01mreading sources... [39;49;00m[ 42%] [35membedding_wrappers[39;49;00m
+[01mreading sources... [39;49;00m[ 46%] [35mexemplar_texts[39;49;00m
+[01mreading sources... [39;49;00m[ 50%] [35mhistorical_examples[39;49;00m
+[01mreading sources... [39;49;00m[ 54%] [35mhow_toponymy_works[39;49;00m
+[01mreading sources... [39;49;00m[ 58%] [35mindex[39;49;00m
+[01mreading sources... [39;49;00m[ 62%] [35minstallation[39;49;00m
+[01mreading sources... [39;49;00m[ 65%] [35mintro[39;49;00m
+[01mreading sources... [39;49;00m[ 69%] [35mkeyphrases[39;49;00m
+[01mreading sources... [39;49;00m[ 73%] [35mllm_wrappers[39;49;00m
+[01mreading sources... [39;49;00m[ 77%] [35mmigration[39;49;00m
+[01mreading sources... [39;49;00m[ 81%] [35mparams_and_options[39;49;00m
+[01mreading sources... [39;49;00m[ 85%] [35mplscan_clusterer[39;49;00m
+[01mreading sources... [39;49;00m[ 88%] [35msaving_loading[39;49;00m
+[01mreading sources... [39;49;00m[ 92%] [35mtest_audit_functionality[39;49;00m
+[01mreading sources... [39;49;00m[ 96%] [35mtest_max_layers_newsgroups[39;49;00m
+[01mreading sources... [39;49;00m[100%] [35mtopic_summaries[39;49;00m
+
+[01mlooking for now-outdated files... [39;49;00mnone found
+[01mpickling environment... [39;49;00mdone
+[01mchecking consistency... [39;49;00mdone
+[01mpreparing documents... [39;49;00mdone
+[01mcopying assets... [39;49;00m
+[01mcopying static files... [39;49;00m
+Writing evaluated template result to /private/tmp/toponymy-perf-sphinx/_static/basic.css
+Writing evaluated template result to /private/tmp/toponymy-perf-sphinx/_static/language_data.js
+Writing evaluated template result to /private/tmp/toponymy-perf-sphinx/_static/documentation_options.js
+Writing evaluated template result to /private/tmp/toponymy-perf-sphinx/_static/js/versions.js
+[01mcopying static files: [39;49;00mdone
+[01mcopying extra files... [39;49;00m
+[01mcopying extra files: [39;49;00mdone
+[01mcopying assets: [39;49;00mdone
+[01mwriting output... [39;49;00m[  4%] [32mapi[39;49;00m
+[01mwriting output... [39;49;00m[  8%] [32mapi_embedding_wrappers[39;49;00m
+[01mwriting output... [39;49;00m[ 12%] [32mapi_llm_wrappers[39;49;00m
+[01mwriting output... [39;49;00m[ 15%] [32mapi_main_classes[39;49;00m
+[01mwriting output... [39;49;00m[ 19%] [32mbasic_usage[39;49;00m
+[01mwriting output... [39;49;00m[ 23%] [32mbenchmark_results[39;49;00m
+[01mwriting output... [39;49;00m[ 27%] [32mcluster_layers[39;49;00m
+[01mwriting output... [39;49;00m[ 31%] [32mclusterers[39;49;00m
+[01mwriting output... [39;49;00m[ 35%] [32mclustering_options[39;49;00m
+[01mwriting output... [39;49;00m[ 38%] [32mdebugging_llm_runs[39;49;00m
+[01mwriting output... [39;49;00m[ 42%] [32membedding_wrappers[39;49;00m
+[01mwriting output... [39;49;00m[ 46%] [32mexemplar_texts[39;49;00m
+[01mwriting output... [39;49;00m[ 50%] [32mhistorical_examples[39;49;00m
+[01mwriting output... [39;49;00m[ 54%] [32mhow_toponymy_works[39;49;00m
+[01mwriting output... [39;49;00m[ 58%] [32mindex[39;49;00m
+[01mwriting output... [39;49;00m[ 62%] [32minstallation[39;49;00m
+[01mwriting output... [39;49;00m[ 65%] [32mintro[39;49;00m
+[01mwriting output... [39;49;00m[ 69%] [32mkeyphrases[39;49;00m
+[01mwriting output... [39;49;00m[ 73%] [32mllm_wrappers[39;49;00m
+[01mwriting output... [39;49;00m[ 77%] [32mmigration[39;49;00m
+[01mwriting output... [39;49;00m[ 81%] [32mparams_and_options[39;49;00m
+[01mwriting output... [39;49;00m[ 85%] [32mplscan_clusterer[39;49;00m
+[01mwriting output... [39;49;00m[ 88%] [32msaving_loading[39;49;00m
+[01mwriting output... [39;49;00m[ 92%] [32mtest_audit_functionality[39;49;00m
+[01mwriting output... [39;49;00m[ 96%] [32mtest_max_layers_newsgroups[39;49;00m
+[01mwriting output... [39;49;00m[100%] [32mtopic_summaries[39;49;00m
+
+[01mgenerating indices... [39;49;00mgenindex py-modindex done
+[01mcopying linked files... [39;49;00m
+[01mcopying notebooks ... [39;49;00m[  9%] [33mbasic_usage.ipynb[39;49;00m
+[01mcopying notebooks ... [39;49;00m[ 18%] [33mclusterers.ipynb[39;49;00m
+[01mcopying notebooks ... [39;49;00m[ 27%] [33mclustering_options.ipynb[39;49;00m
+[01mcopying notebooks ... [39;49;00m[ 36%] [33mdebugging_llm_runs.ipynb[39;49;00m
+[01mcopying notebooks ... [39;49;00m[ 45%] [33mexemplar_texts.ipynb[39;49;00m
+[01mcopying notebooks ... [39;49;00m[ 55%] [33mhow_toponymy_works.ipynb[39;49;00m
+[01mcopying notebooks ... [39;49;00m[ 64%] [33mkeyphrases.ipynb[39;49;00m
+[01mcopying notebooks ... [39;49;00m[ 73%] [33msaving_loading.ipynb[39;49;00m
+[01mcopying notebooks ... [39;49;00m[ 82%] [33mtest_audit_functionality.ipynb[39;49;00m
+[01mcopying notebooks ... [39;49;00m[ 91%] [33mtest_max_layers_newsgroups.ipynb[39;49;00m
+[01mcopying notebooks ... [39;49;00m[100%] [33mtopic_summaries.ipynb[39;49;00m
+
+[01mwriting additional pages... [39;49;00msearch done
+[01mcopying images... [39;49;00m[ 17%] [33mbenchmark_figures/architecture-overview.svg[39;49;00m
+[01mcopying images... [39;49;00m[ 33%] [33mbenchmark_figures/runtime-comparison.svg[39;49;00m
+[01mcopying images... [39;49;00m[ 50%] [33mbenchmark_figures/runtime-ratios.svg[39;49;00m
+[01mcopying images... [39;49;00m[ 67%] [33mbenchmark_figures/process-memory.svg[39;49;00m
+[01mcopying images... [39;49;00m[ 83%] [33mbenchmark_figures/validation-summary.svg[39;49;00m
+[01mcopying images... [39;49;00m[100%] [33mtoponymy_text_horizontal.png[39;49;00m
+
+[01mdumping search index in English (code: en)... [39;49;00mdone
+[01mdumping object inventory... [39;49;00mdone
+[01mbuild succeeded.[39;49;00m
+
+The HTML pages are in ../../../../private/tmp/toponymy-perf-sphinx.

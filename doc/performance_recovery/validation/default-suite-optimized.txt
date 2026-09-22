@@ -1,0 +1,277 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.13, pytest-9.0.3, pluggy-1.6.0
+rootdir: /Users/agus/Developer/toponymy-perf
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1, hypothesis-6.168.0, nunit-1.0.7, cov-7.1.0, asyncio-1.4.0, azurepipelines-1.0.5
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 1692 items / 3 deselected / 1689 selected
+
+tests/test_archive_boundaries.py ............                            [  0%]
+tests/test_archive_identity.py ......................................... [  3%]
+............                                                             [  3%]
+tests/test_clustering_adapters.py ...................................... [  6%]
+..........................                                               [  7%]
+tests/test_clustering_characterization.py ...                            [  7%]
+tests/test_clustering_contracts.py ..................................... [ 10%]
+.................                                                        [ 11%]
+tests/test_clustering_quality.py ....F                                   [ 11%]
+tests/test_doc_notebooks.py ....................ss.....                  [ 12%]
+tests/test_embedding_boundaries.py ....................                  [ 14%]
+tests/test_evaluation_protocol.py ...................................... [ 16%]
+............                                                             [ 17%]
+tests/test_evoc_fitted_state.py ...........................              [ 18%]
+tests/test_evoc_isolation.py ................                            [ 19%]
+tests/test_evoc_windows_cleanup.py s                                     [ 19%]
+tests/test_feature_extraction_contracts.py .....................##vso[task.logissue type=warning;]
+Encountered the use of a type that is scheduled for deprecation: type 'reflected list' found for argument 'candidate_keyphrases' of function 'longest_keyphrases'.
+
+For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
+
+File "toponymy/keyphrases.py", line 583:
+@numba.njit()
+def longest_keyphrases(candidate_keyphrases):  # pragma: no cover
+^
+
+........ [ 21%]
+..................                                                       [ 22%]
+tests/test_keyphrase_boundaries.py .......##vso[task.logissue type=warning;]Input has data type int64, but the output has been cast to float64.  In the future, the output data type will match the input. To avoid this warning, set the `dtype` parameter to `None` to have the output dtype match the input, or set it to the desired output data type.
+.............................  [ 24%]
+tests/test_lance_integrity.py ....................................       [ 26%]
+tests/test_migration_regressions.py .........................            [ 28%]
+tests/test_name_state.py ...............................                 [ 30%]
+tests/test_numerical_boundaries.py ..........                            [ 30%]
+tests/test_partial_prompt_storage.py ..                                  [ 30%]
+tests/test_performance_centroids.py ........                             [ 31%]
+tests/test_performance_clustering.py ......................              [ 32%]
+tests/test_performance_persistence.py .................................. [ 34%]
+........................................................................ [ 38%]
+.....................                                                    [ 40%]
+tests/test_persistence_contracts.py ..................                   [ 41%]
+tests/test_pipeline_contracts.py ........................                [ 42%]
+tests/test_prepared_state.py ............                                [ 43%]
+tests/test_prompt_contracts.py ...............................           [ 45%]
+tests/test_provider_adversarial.py ..................................... [ 47%]
+.......                                                                  [ 47%]
+tests/test_provider_batch_lifecycle.py ................................. [ 49%]
+........................................................................ [ 53%]
+......                                                                   [ 54%]
+tests/test_provider_batch_transports.py ................................ [ 56%]
+........................................................................ [ 60%]
+.........                                                                [ 60%]
+tests/test_provider_compatibility.py ................................... [ 62%]
+...........................................................              [ 66%]
+tests/test_provider_contracts.py ....................................... [ 68%]
+...............                                                          [ 69%]
+tests/test_provider_native_failures.py .....................             [ 70%]
+tests/test_provider_options.py .................                         [ 71%]
+tests/test_provider_policy_boundaries.py ............................... [ 73%]
+.........................................                                [ 76%]
+tests/test_result_consumers.py ..........................                [ 77%]
+tests/test_reuse_and_renderings.py .............                         [ 78%]
+tests/test_selection_numerics.py ............................            [ 80%]
+tests/test_semantic_subtopics.py ...............                         [ 81%]
+tests/test_subtopic_boundaries.py ...................................... [ 83%]
+.                                                                        [ 83%]
+tests/test_template_boundaries.py ....                                   [ 83%]
+tests/test_template_compilation.py ......                                [ 83%]
+tests/test_treeshap_extractor.py ss.......                               [ 84%]
+tests/upstream/test__utils.py ..................................         [ 86%]
+tests/upstream/test_debug_logging.py ...                                 [ 86%]
+tests/upstream/test_embedding_wrappers.py ........                       [ 87%]
+tests/upstream/test_exemplar_texts.py ........................           [ 88%]
+tests/upstream/test_keyphrases.py ........ssssssss................ssssss [ 90%]
+sssssssssssssssssssss                                                    [ 92%]
+tests/upstream/test_notebook_tools.py .........................s....     [ 93%]
+tests/upstream/test_subtopics.py ..............s..##vso[task.logissue type=warning;]With alpha=0, this algorithm does not converge well. You are advised to use the LinearRegression estimator
+##vso[task.logissue type=warning;]Coordinate descent without L1 regularization may lead to unexpected results and is discouraged. Set l1_ratio > 0 to add L1 regularization.
+.##vso[task.logissue type=warning;]With alpha=0, this algorithm does not converge well. You are advised to use the LinearRegression estimator
+##vso[task.logissue type=warning;]Coordinate descent without L1 regularization may lead to unexpected results and is discouraged. Set l1_ratio > 0 to add L1 regularization.
+.##vso[task.logissue type=warning;]With alpha=0, this algorithm does not converge well. You are advised to use the LinearRegression estimator
+##vso[task.logissue type=warning;]Coordinate descent without L1 regularization may lead to unexpected results and is discouraged. Set l1_ratio > 0 to add L1 regularization.
+.##vso[task.logissue type=warning;]With alpha=0, this algorithm does not converge well. You are advised to use the LinearRegression estimator
+##vso[task.logissue type=warning;]Coordinate descent without L1 regularization may lead to unexpected results and is discouraged. Set l1_ratio > 0 to add L1 regularization.
+.##vso[task.logissue type=warning;]With alpha=0, this algorithm does not converge well. You are advised to use the LinearRegression estimator
+##vso[task.logissue type=warning;]Coordinate descent without L1 regularization may lead to unexpected results and is discouraged. Set l1_ratio > 0 to add L1 regularization.
+.##vso[task.logissue type=warning;]With alpha=0, this algorithm does not converge well. You are advised to use the LinearRegression estimator
+##vso[task.logissue type=warning;]Coordinate descent without L1 regularization may lead to unexpected results and is discouraged. Set l1_ratio > 0 to add L1 regularization.
+##vso[task.logissue type=warning;]Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 3.355e-01, tolerance: 1.000e-08
+.s.               [ 95%]
+tests/upstream/test_templates.py .....                                   [ 95%]
+tests/upstream/test_topic_tree.py ......................                 [ 96%]
+tests/upstream/test_utility_functions.py ............................... [ 98%]
+.....................                                                    [100%]##vso[results.publish type=NUnit;runTitle='Pytest results';publishRunAttachments=true;]/Users/agus/Developer/toponymy-perf/test-output.xml
+##vso[task.logissue type=error;]1 test(s) failed, 1689 test(s) collected.
+##vso[codecoverage.publish codecoveragetool=Cobertura;summaryfile=/tmp/toponymy-perf-coverage-final.xml;reportdirectory=/Users/agus/Developer/toponymy-perf/htmlcov;]
+
+
+=================================== FAILURES ===================================
+___ test_evoc_refactor_default_hierarchy_quality_matches_original_threshold ____
+
+    def test_evoc_refactor_default_hierarchy_quality_matches_original_threshold():
+        """Preserve native granularity and the refactor's ground-truth AMI threshold."""
+        _require_evoc()
+        vectors, ground_truth = _blobs(centers=5, n_features=128, cluster_std=0.001)
+        clusterer = EVoCClusterer(random_state=42).fit(vectors)
+
+        assert clusterer.cluster_layers_
+        final_layer = clusterer.cluster_layers_[-1]
+        # EVoC selects granularity: its maintained version can split one true blob.
+        # The adapter must retain those clusters rather than truncate native output.
+        assert len(final_layer) >= 5
+        np.testing.assert_array_equal(
+            final_layer.labels, clusterer.evoc_.cluster_layers_[-1]
+        )
+        assert (
+            len(final_layer) == np.unique(final_layer.labels[final_layer.labels >= 0]).size
+        )
+>       _assert_assigned_ami(final_layer.labels, ground_truth, 0.75)
+
+tests/test_clustering_quality.py:136:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+labels = array([-1, -1,  5, -1, -1, -1, -1, -1, -1, -1, 10, -1, -1,  6, -1,  5, -1,
+       -1,  4, -1, -1, -1, -1,  9, 12, -1, ...-1,  5, -1, 10, -1, -1, -1, 12, -1, -1,  7, -1, -1, -1,
+       -1, 14, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+ground_truth = array([3, 0, 4, 1, 0, 4, 2, 2, 0, 3, 0, 2, 3, 3, 4, 4, 0, 1, 4, 0, 0, 2,
+       0, 1, 2, 0, 2, 3, 4, 2, 4, 1, 1, 1, 4,...2, 4, 1,
+       1, 1, 1, 0, 0, 4, 1, 0, 3, 0, 4, 2, 4, 4, 3, 3, 2, 4, 4, 0, 0, 1,
+       3, 1, 0, 4, 1, 3, 3, 2, 0, 4])
+minimum = 0.75
+
+    def _assert_assigned_ami(labels, ground_truth, minimum):
+        """Use the original non-noise metric and reject vacuous assignments."""
+        assert labels.shape == ground_truth.shape
+        assigned = labels >= 0
+        assert assigned.any(), "The density clusterer assigned no observations"
+        assert np.unique(labels[assigned]).size >= 2
+        assert np.unique(ground_truth[assigned]).size >= 2
+        score = adjusted_mutual_info_score(labels[assigned], ground_truth[assigned])
+>       assert score >= minimum, (
+            f"Assigned-point AMI {score:.6f} is below {minimum}; "
+            f"assigned {assigned.sum()}/{labels.size} observations"
+        )
+E       AssertionError: Assigned-point AMI 0.732701 is below 0.75; assigned 199/1000 observations
+E       assert 0.7327008099963787 >= 0.75
+
+tests/test_clustering_quality.py:42: AssertionError
+=============================== warnings summary ===============================
+tests/test_feature_extraction_contracts.py::test_real_keyphrase_strategies_are_optional_and_preserve_inputs[information_weighted]
+  /Users/agus/Developer/toponymy/.venv/lib/python3.12/site-packages/numba/core/ir_utils.py:2200: NumbaPendingDeprecationWarning:
+  Encountered the use of a type that is scheduled for deprecation: type 'reflected list' found for argument 'candidate_keyphrases' of function 'longest_keyphrases'.
+
+  For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
+
+  File "toponymy/keyphrases.py", line 583:
+  @numba.njit()
+  def longest_keyphrases(candidate_keyphrases):  # pragma: no cover
+  ^
+
+    warnings.warn(NumbaPendingDeprecationWarning(msg, loc=loc))
+
+tests/test_keyphrase_boundaries.py::test_central_keyphrases_use_the_same_center_for_ranking_and_diversification
+  /Users/agus/Developer/toponymy-perf/tests/test_keyphrase_boundaries.py:80: FutureWarning: Input has data type int64, but the output has been cast to float64.  In the future, the output data type will match the input. To avoid this warning, set the `dtype` parameter to `None` to have the output dtype match the input, or set it to the desired output data type.
+    counts = sparse.diags([10, 1, 1, 10, 1, 1], format="csr")
+
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[0.0-1]
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[0.0-3]
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[0.5-1]
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[0.5-3]
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[1.0-1]
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[1.0-3]
+  /Users/agus/Developer/toponymy/.venv/lib/python3.12/site-packages/sklearn/base.py:1336: UserWarning: With alpha=0, this algorithm does not converge well. You are advised to use the LinearRegression estimator
+    return fit_method(estimator, *args, **kwargs)
+
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[0.0-1]
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[0.0-3]
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[0.5-1]
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[0.5-3]
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[1.0-1]
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[1.0-3]
+  /Users/agus/Developer/toponymy/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:701: UserWarning: Coordinate descent without L1 regularization may lead to unexpected results and is discouraged. Set l1_ratio > 0 to add L1 regularization.
+    model = cd_fast.enet_coordinate_descent_gram(
+
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_result_sizes[1.0-3]
+  /Users/agus/Developer/toponymy/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:701: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 3.355e-01, tolerance: 1.000e-08
+    model = cd_fast.enet_coordinate_descent_gram(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================ retained local-model tests (collection policy) ================
+tests/upstream/test_keyphrases.py::test_tokenizer_vocabulary_building[4-900]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_tokenizer_vocabulary_building[4-450]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_tokenizer_vocabulary_building[3-900]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_tokenizer_vocabulary_building[3-450]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_tokenizer_vocabulary_building[2-900]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_tokenizer_vocabulary_building[2-450]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_tokenizer_vocabulary_building[1-900]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_tokenizer_vocabulary_building[1-450]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_central_keyphrases_result_sizes[0.0-3]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_central_keyphrases_result_sizes[0.0-5]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_central_keyphrases_result_sizes[0.5-3]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_central_keyphrases_result_sizes[0.5-5]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_central_keyphrases_result_sizes[1.0-3]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_central_keyphrases_result_sizes[1.0-5]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_central_keyphrases: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_bm25_keyphrases_result_sizes[0.0-3]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_bm25_keyphrases_result_sizes[0.0-5]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_bm25_keyphrases_result_sizes[0.5-3]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_bm25_keyphrases_result_sizes[0.5-5]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_bm25_keyphrases_result_sizes[1.0-3]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_bm25_keyphrases_result_sizes[1.0-5]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_bm25_keyphrases: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_information_weighted_keyphrases_result_sizes[0.0-3]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_information_weighted_keyphrases_result_sizes[0.0-5]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_information_weighted_keyphrases_result_sizes[0.5-3]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_information_weighted_keyphrases_result_sizes[0.5-5]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_information_weighted_keyphrases_result_sizes[1.0-3]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_information_weighted_keyphrases_result_sizes[1.0-5]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_information_weighted_keyphrases: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_submodular_keyphrases_result_sizes[saturated_coverage-3]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_submodular_keyphrases_result_sizes[saturated_coverage-5]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_submodular_keyphrases_result_sizes[facility_location-3]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_submodular_keyphrases_result_sizes[facility_location-5]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_submodular_keyphrases_result_sizes[graph_cut-3]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_keyphrases.py::test_submodular_keyphrases_result_sizes[graph_cut-5]: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_notebook_tools.py::test_openainamer_fallback_to_notebook_mock: Probes a running Ollama service and requires a local model
+tests/upstream/test_subtopics.py::test_central_subtopics_from_all_subtopics_w_embeddder: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+tests/upstream/test_subtopics.py::test_information_weighted_subtopics_embedder: Requires cached sentence-transformers/all-MiniLM-L6-v2; model execution is opt-in
+- generated Nunit xml file: /Users/agus/Developer/toponymy-perf/test-output.xml -
+================================ tests coverage ================================
+______________ coverage: platform darwin, python 3.12.13-final-0 _______________
+
+Name                                      Stmts   Miss  Cover   Missing
+-----------------------------------------------------------------------
+toponymy/__init__.py                         16      4    75%   11-12, 31-33
+toponymy/_evoc.py                            90      5    94%   30, 126, 153-155
+toponymy/_utils.py                           49      3    94%   22-23, 158
+toponymy/audit.py                           129     10    92%   78, 298-316
+toponymy/clustering.py                      298      7    98%   197, 286, 315, 438, 443, 457, 467
+toponymy/debug_logging.py                    36      2    94%   66-67
+toponymy/embedding_wrappers.py              145     21    86%   21, 108-109, 159-160, 190, 192, 237-238, 275-276, 325-326, 331-347
+toponymy/evaluation.py                      203      0   100%
+toponymy/exemplar_texts.py                  166     22    87%   45-53, 262-278, 289, 389, 425-428, 602, 605, 651
+toponymy/feature_extraction.py              363     84    77%   76, 184, 240, 270, 289, 293, 296, 298-299, 301-305, 321, 323, 387, 389, 429, 451, 459, 468, 520, 610-703
+toponymy/keyphrases.py                      353     29    92%   89-90, 106-107, 120, 207, 221, 233, 280, 288, 348, 360, 477, 493, 551, 555, 613, 652, 719, 757-758, 863, 1005, 1165, 1212, 1230-1231, 1261-1262
+toponymy/llm_wrappers.py                   1194    148    88%   240-241, 247, 416, 431, 446, 472-485, 621, 633-653, 785-786, 836-837, 854, 927, 977-987, 1033-1044, 1081, 1103-1104, 1129-1134, 1164, 1194, 1208, 1211, 1223-1244, 1277, 1291-1299, 1303, 1309-1312, 1320, 1333, 1336, 1341, 1346, 1352, 1358, 1361, 1366, 1374, 1380, 1424-1426, 1722-1725, 1803, 1945, 1988-1991, 2074, 2310, 2795, 2822, 3039-3049, 3057, 3062-3075, 3083-3098, 3133-3156, 3183-3185, 3246-3247, 3271, 3297, 3326-3328, 3499, 3616, 3679-3680, 3889-3894, 4388-4389, 4413, 4439, 4468-4470, 4687-4693, 4704
+toponymy/plotting.py                         65      2    97%   73, 85
+toponymy/provider_batches.py                449     24    95%   99, 108-109, 111, 518, 535, 582, 591-593, 597-599, 644, 661, 715, 721, 740-743, 751, 804, 813-815, 892
+toponymy/response_parsing.py                100      3    97%   35, 114, 135
+toponymy/serialization.py                   628     64    90%   49, 69-70, 82, 87, 90, 92-93, 98, 115, 120, 124, 128, 133, 143, 145, 148, 157, 159, 167, 169, 176, 191, 279, 285, 287-288, 316, 328, 333, 339, 376, 450, 458, 491, 504, 508, 516, 526, 578, 655, 665, 681, 689-690, 775-797, 838, 870, 984, 991, 1015, 1065, 1127
+toponymy/subtopics.py                       167     13    92%   31, 34, 36, 60, 62, 64, 72, 81, 130, 182, 184, 221, 238
+toponymy/templates.py                       121      5    96%   40, 68, 74, 84, 90
+toponymy/tools/notebook_data_load.py         72      1    99%   213
+toponymy/tools/notebook_runner.py            98     25    74%   5-6, 109-113, 116-117, 120-121, 187-188, 192-193, 206, 271-297
+toponymy/tools/notebook_test_helpers.py      43     12    72%   66-80
+toponymy/topic_tree.py                      145     16    89%   21, 57, 93, 479, 595-623
+toponymy/toponymy.py                        377     23    94%   67, 69, 75, 91, 93, 109, 146, 148, 179, 317, 375, 382, 390, 392, 397, 412, 414, 562, 640, 659, 709-715, 740
+toponymy/treemap.py                          54      3    94%   10, 58, 69
+toponymy/types.py                            89      0   100%
+toponymy/utility_functions.py               112      8    93%   19, 51, 63, 74, 119, 126, 128, 132
+-----------------------------------------------------------------------
+TOTAL                                      5562    534    90%
+Coverage HTML written to dir htmlcov
+Coverage XML written to file /tmp/toponymy-perf-coverage-final.xml
+Coverage JSON written to file /tmp/toponymy-perf-coverage-final.json
+=========================== short test summary info ============================
+FAILED tests/test_clustering_quality.py::test_evoc_refactor_default_hierarchy_quality_matches_original_threshold
+= 1 failed, 1645 passed, 43 skipped, 3 deselected, 15 warnings in 133.25s (0:02:13) =
