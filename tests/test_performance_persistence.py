@@ -1,5 +1,8 @@
 """Characterize membership materialization before optimizing archive loading."""
 
+import io
+import zipfile
+
 import numpy as np
 import pandas as pd
 import pytest
@@ -215,12 +218,59 @@ def test_empty_topic_columns_materialize_readonly_empty_members(storage):
 def test_mutated_coo_coordinates_cannot_escape_membership_validation(
     storage, axis, value
 ):
+    """Some mutated in-memory states were accepted before the bounds guard."""
     matrix = membership(storage)
     getattr(matrix, axis)[0] = value
     model = model_for(matrix)
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="invalid coordinates"):
         model.topics
     assert model._topics is None
+
+
+@pytest.mark.parametrize("storage", [sparse.coo_matrix, sparse.coo_array])
+@pytest.mark.parametrize(
+    "axis,value", [("row", -1), ("row", 5), ("col", -1), ("col", 3)]
+)
+def test_persisted_invalid_coo_is_rejected_during_scipy_loading(
+    tmp_path, monkeypatch, storage, axis, value
+):
+    """NPZ rejection precedes topic materialization, including on PERF_BASE."""
+    matrix = membership(storage)
+    model = model_for(matrix)
+    model.cluster_tree = {(1, 0): [(0, 7), (0, 99), (0, 2**40)]}
+    source = tmp_path / "valid.zip"
+    model.to_file(source)
+    getattr(matrix, axis)[0] = value
+    payload = io.BytesIO()
+    sparse.save_npz(payload, matrix)
+    malformed = tmp_path / "invalid.zip"
+    with (
+        zipfile.ZipFile(source) as original,
+        zipfile.ZipFile(malformed, "w") as changed,
+    ):
+        for entry in original.infolist():
+            changed.writestr(
+                entry,
+                (
+                    payload.getvalue()
+                    if entry.filename == "cluster_matrices/layer_0.npz"
+                    else original.read(entry)
+                ),
+            )
+    original_load = sparse.load_npz
+    rejected = []
+
+    def load_npz(*args, **kwargs):
+        try:
+            return original_load(*args, **kwargs)
+        except ValueError:
+            rejected.append(True)
+            raise
+
+    monkeypatch.setattr(sparse, "load_npz", load_npz)
+    with pytest.raises(ValueError):
+        TopicModel.from_file(malformed)
+    assert rejected == [True]
 
 
 @pytest.mark.parametrize("storage", STORAGE_TYPES)

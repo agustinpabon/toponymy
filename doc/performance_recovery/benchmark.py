@@ -236,6 +236,13 @@ def archive_reference(path):
 
 
 def check_archive(model, reference):
+    """Check defined persisted fields, not universal TopicModel equivalence.
+
+    Assertions cover vectors, documents, sparse values, normalized tree,
+    table identity/name/size/keyphrases and topic members. Returned digests
+    summarize only vectors, memberships, tree and names; prompts, histories,
+    metadata and other mutable Topic fields are outside this verifier's scope.
+    """
     import numpy as np
     import pandas as pd
 
@@ -355,7 +362,9 @@ def make_operations(args, clustering, serialization, vectors, labels, old):
 
     def check_tree(tree):
         assert normalized_tree(tree) == expected
-        return {"tree": json_digest(expected)}
+        if not old:
+            assert list(tree.items()) == list(plot_tree.items())
+        return {"tree": json_digest(normalized_tree(tree))}
 
     def check_centroids(result):
         import numpy as np
@@ -396,8 +405,12 @@ def make_operations(args, clustering, serialization, vectors, labels, old):
 
         layers, tree = result
         assert len(layers) == len(labels)
-        for layer, values in zip(layers, labels):
+        returned_labels = []
+        returned_members = []
+        owned_arrays = set()
+        for index, (layer, values) in enumerate(zip(layers, labels)):
             np.testing.assert_array_equal(layer.cluster_labels, values)
+            returned_labels.append(array_digest(layer.cluster_labels))
             if old:
                 means = np.array(
                     [
@@ -409,12 +422,29 @@ def make_operations(args, clustering, serialization, vectors, labels, old):
                     layer.centroid_vectors, means, rtol=1e-12, atol=1e-14
                 )
             else:
+                assert layer.layer_index == index
+                expected_ids = np.unique(values[values >= 0]).tolist()
+                assert [cluster.label for cluster in layer] == expected_ids
+                assert len(layer) == len(expected_ids)
+                arrays = [layer.labels]
                 for cluster in layer:
                     np.testing.assert_array_equal(
                         cluster.members, np.flatnonzero(values == cluster.label)
                     )
-                assert not layer.labels.flags.writeable
-        return {**check_tree(tree), "labels": [array_digest(x) for x in labels]}
+                    returned_members.append(
+                        [index, cluster.label, array_digest(cluster.members)]
+                    )
+                    arrays.append(cluster.members)
+                for array in arrays:
+                    assert array.dtype == np.dtype(np.int64)
+                    assert array.flags.owndata and not array.flags.writeable
+                    assert id(array) not in owned_arrays
+                    owned_arrays.add(id(array))
+                    assert all(not np.shares_memory(array, source) for source in labels)
+        checked = {**check_tree(tree), "labels": returned_labels}
+        if not old:
+            checked["members"] = json_digest(returned_members)
+        return checked
 
     operations = {
         "centroids": (

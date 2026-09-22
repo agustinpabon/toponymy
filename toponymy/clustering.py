@@ -81,7 +81,7 @@ def build_cluster_tree(labels: Sequence[np.ndarray]) -> ClusterTree:
     root ``(number_of_layers, 0)``. No nodes are invented for absent IDs.
     """
     labels = _validate_label_layers(labels)
-    return _tree_from_grouping(labels, [_group_labels(layer) for layer in labels])
+    return _tree_from_grouping(labels, (_group_labels(layer) for layer in labels))
 
 
 def _tree_from_grouping(labels, groups) -> ClusterTree:
@@ -89,6 +89,8 @@ def _tree_from_grouping(labels, groups) -> ClusterTree:
 
     Every grouped ID is visited once, and only attaches to a strictly higher
     layer (or the root), so generated trees need no second integrity pass.
+    Groups are consumed once, allowing standalone callers to release each
+    grouping after use; fitted layers can instead share a materialized list.
     """
     tree: ClusterTree = {}
     root = (len(labels), 0)

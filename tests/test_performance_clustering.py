@@ -1,6 +1,9 @@
 """Ownership and containment regressions for canonical clustering construction."""
 
 from types import SimpleNamespace
+import importlib.util
+from pathlib import Path
+import weakref
 
 import numpy as np
 import pytest
@@ -71,6 +74,33 @@ def test_fit_matches_membership_and_containment_oracles(labels):
         for child in children
     } == containment_oracle(labels)
     validate_cluster_tree(fitted.cluster_tree_, fitted.cluster_layers_)
+    assert list(clustering.build_cluster_tree(labels).items()) == list(
+        fitted.cluster_tree_.items()
+    )
+
+
+@pytest.mark.parametrize("depth", [1, 3, 8, 16, 32, 64])
+def test_standalone_tree_releases_consumed_grouping_buffers(monkeypatch, depth):
+    """Grouping storage stays bounded in depth; no timing/allocation threshold."""
+    original = clustering._group_labels
+    buffers = []
+
+    def track_grouping(labels):
+        # The consuming loop may still hold the previous group while computing
+        # the next one. Earlier groups must no longer be retained.
+        assert sum(reference() is not None for reference in buffers) <= 1
+        group = original(labels)
+        buffers.append(weakref.ref(group[2]))
+        return group
+
+    monkeypatch.setattr(clustering, "_group_labels", track_grouping)
+    labels = [np.array([19, -1, np.iinfo(np.int64).max, 19])] * depth
+    tree = clustering.build_cluster_tree(labels)
+    assert len(buffers) == depth
+    assert all(reference() is None for reference in buffers)
+    assert {
+        child: parent for parent, children in tree.items() for child in children
+    } == containment_oracle(labels)
 
 
 def test_fit_groups_each_partition_once(monkeypatch):
@@ -206,3 +236,47 @@ def test_widget_hierarchy_preserves_generic_iterable_compatibility():
         "size": 4,
         "children": [{"name": "A", "size": 2}, {"name": "B", "size": 1}],
     }
+
+
+@pytest.mark.parametrize(
+    "defect", ["missing", "duplicate", "layer-index", "borrowed", "writable", "tree"]
+)
+def test_benchmark_verifier_rejects_incomplete_or_unowned_returned_state(defect):
+    path = Path(__file__).parents[1] / "doc/performance_recovery/benchmark.py"
+    spec = importlib.util.spec_from_file_location("performance_benchmark", path)
+    benchmark = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(benchmark)
+    vectors, labels = benchmark.workload(128, 4, 211)
+    operations, _ = benchmark.make_operations(
+        SimpleNamespace(operations=["precomputed"], archive=None, fixture=None),
+        clustering,
+        None,
+        vectors,
+        labels,
+        False,
+    )
+    operation, verify = operations["precomputed"]
+    layers, tree = operation()
+    verify((layers, tree))
+
+    class ReturnedLayer(list):
+        pass
+
+    changed = ReturnedLayer(layers[0])
+    changed.labels = layers[0].labels
+    changed.cluster_labels = changed.labels
+    changed.layer_index = 0
+    if defect == "missing":
+        changed.pop()
+    elif defect == "duplicate":
+        changed.append(changed[0])
+    elif defect == "layer-index":
+        changed.layer_index = 9
+    elif defect == "borrowed":
+        changed.labels = changed.cluster_labels = changed.labels.view()
+    elif defect == "writable":
+        changed.labels = changed.cluster_labels = changed.labels.copy()
+    else:
+        tree = {key: list(reversed(children)) for key, children in tree.items()}
+    with pytest.raises(AssertionError):
+        verify(([changed, *layers[1:]], tree))

@@ -545,6 +545,8 @@ class TopicModel:
                 ):
                     # COO exposes mutable coordinates but has no check_format.
                     # Grouping must not silently discard an out-of-range column.
+                    # This strengthens rejection of some mutated in-memory COO
+                    # states; SciPy already rejects their persisted NPZ forms.
                     raise ValueError(
                         f"Cluster matrix {layer_index} has invalid coordinates"
                     )
