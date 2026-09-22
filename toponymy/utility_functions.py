@@ -143,7 +143,7 @@ def diversify_max_alpha(
     )
 
 
-@numba.njit(cache=True)
+@numba.njit(cache=True, error_model="numpy")
 def centroids_from_labels(
     cluster_labels: np.ndarray, vector_data: np.ndarray
 ) -> np.ndarray:
@@ -165,12 +165,19 @@ def centroids_from_labels(
         if cluster_num >= 0:
             for j in range(vector_data.shape[1]):
                 if scales[cluster_num, j] > 0:
+                    # Both divisors are positive: this row was counted above.
+                    # The NumPy error model removes redundant division guards
+                    # without changing division order or enabling fastmath.
                     result[cluster_num, j] += (
                         vector_data[i, j] / scales[cluster_num, j] / counts[cluster_num]
                     )
 
     for i in range(result.shape[0]):
         # A mean stays inside the input range, including rounding at float max.
-        result[i] = np.minimum(1.0, np.maximum(-1.0, result[i])) * scales[i]
+        # Scalar restoration avoids allocating temporary arrays for every row.
+        for j in range(result.shape[1]):
+            result[i, j] = (
+                np.minimum(1.0, np.maximum(-1.0, result[i, j])) * scales[i, j]
+            )
 
     return result
