@@ -1,0 +1,30 @@
+{
+  "doc/performance_recovery/results/manifest.json": {
+    "sha256": "565e7c0302fbe56e01804bc6beb3ae9cf6b9c6216ecbfc9e1c12f480136de317",
+    "bytes": 2484704
+  },
+  "doc/performance_recovery/results/analysis.json": {
+    "sha256": "aa0695e1c14c2cceda4a3ec029f3cc98ab53810b42da68d85384ee4d0c528fcf",
+    "bytes": 9285
+  },
+  "doc/performance_recovery/correction/measurements/manifest.json": {
+    "sha256": "399741bac43d7c07bd7e4221faed2fd504f0885fddfe634660e6f77f2f301059",
+    "bytes": 84970
+  },
+  "doc/performance_recovery/correction/measurements/summary.json": {
+    "sha256": "048d899b9dd9e1c280b1b3f6311d0b3a28d026fb305483a641262eb8a96a717c",
+    "bytes": 9268
+  },
+  "doc/performance_recovery/correction/validation/commands.json": {
+    "sha256": "36082a55537ff95122d177ad79e2b44f20712e0ea4efd510b4556c039bcc62fb",
+    "bytes": 7877
+  },
+  "doc/performance_recovery/correction/validation/coverage.json": {
+    "sha256": "2fea7b77a072ef8f139854c8f48b929c47f17956bb5bc5ab44df27a3eb430bd4",
+    "bytes": 320526
+  },
+  "doc/performance_recovery/correction/validation/package-artifacts.json": {
+    "sha256": "d3ff6c751f643370a0018b6b209e5b1d103b096a864e4b454966a00020e1ae13",
+    "bytes": 297
+  }
+}

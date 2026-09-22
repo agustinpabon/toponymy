@@ -8,12 +8,24 @@ centroid kernel overhead without changing its arithmetic order. Production
 changes are confined to five modules; the existing test suite and CI
 configuration are unchanged.
 
-**Validation is not fully green on this host.** The complete optimized suite
-has 1645 passes and one EVoC quality failure; untouched PERF_BASE has 1488
-passes and the identical failure/score. The 157 added tests pass, coverage is
-90.4%, and the focused, extended-property, package, and documentation checks
-pass. The unchanged baseline failure must be resolved or reproduced on the
-supported CI matrix before claiming complete success.
+The original campaign recorded one EVoC failure on both BASE and OPT. A later
+independent audit could not reproduce it: both revisions passed the exact
+quality test, and the optimized default suite passed (1646 passed, 43 skipped,
+3 deselected). The historical failure's cause remains unresolved; it is not
+established stochastic or platform behavior. Supported Linux/Python CI after
+integration with merged #211 is still required before claiming full validation.
+
+The original measurements below are retained as historical evidence through
+`0e0d267eddc469a0ed659108f4241a5be3e97581`. The subsequent targeted correction,
+depth measurements, current checks and reproduction instructions are in
+[correction/REPORT.md](correction/REPORT.md). Proposed upstream contents are in
+[upstream_file_manifest.md](upstream_file_manifest.md); complete evidence stays
+in this campaign history.
+
+The correction's current default run has 1665 passes and the same EVoC failure;
+separate untouched BASE and corrected OPT runs again fail with identical labels.
+This additional observation is retained alongside the auditor's passing runs,
+without attributing an unproven cause or claiming the local suite is green.
 
 ## Git identities and scope
 
@@ -26,9 +38,10 @@ supported CI matrix before claiming complete success.
 The branch starts exactly at PERF_BASE, in an isolated worktree reusing the
 existing repository. Upstream/main was not merged into it. Subsequent commits
 collect results/documentation and correct a summary-only metadata check; the
-benchmark workload and production source remain unchanged. Their hashes
+benchmark workload and production source remained unchanged through `0e0d267`. Their hashes
 are frozen in the campaign manifest. The final delivery commit can therefore
-differ from the measured HEAD without changing the measured implementation.
+differ from that measured HEAD. The correction report separately identifies
+the subsequent standalone-tree change and its measured source hashes.
 
 Production files changed:
 
@@ -103,6 +116,9 @@ layers retain their behavior.
 The requested reference to OLD's Numba hierarchy builder identifies
 `build_cluster_tree` as the primary hierarchy measurement. Its standalone API
 still validates/groups its own input; it benefits from the cheaper grouping.
+The initial optimization retained all standalone grouping buffers, causing a
+depth-dependent memory regression. The correction streams those groups through
+the single-pass tree builder. `_set_labels` keeps its shared materialized list.
 OLD's dense-ID/partial-containment implementation was not restored.
 
 The additional display hierarchy operation, `construct_topic_hierarchy`, uses
@@ -155,8 +171,10 @@ Grouping storage depends on populated columns rather than the largest label.
 
 Sparse shape/data checks, finite/nonnegative values, `check_format`, duplicate
 coordinates including explicit zeros, and partition checks remain. An explicit
-mutated-COO coordinate bounds check preserves rejection previously performed
-by downstream conversion/slicing. Table identity/UID/coverage, metadata,
+mutated-COO coordinate bounds check is stricter for some malformed in-memory
+objects previously accepted. Equivalent malformed persisted NPZ archives were
+already rejected by SciPy during loading; that rejection remains intact.
+Table identity/UID/coverage, metadata,
 name/history state, tree containment, and eager validation remain. ZIP member
 path, duplicate-entry, inventory, extraction, and filesystem checks are
 unchanged. A 240-case differential across CSR/CSC/COO matrices and arrays
@@ -205,7 +223,8 @@ objects, centroids, and tree. It is a changed-work comparison. OLD persistence
 lacks the new integrity/materialization contract, and OLD display hierarchy
 reports leaf sizes of one. Those OLD outputs are checked against their own
 historical contracts, not silently made equivalent. Common persisted data is
-checked across all arms; BASE/OPT outputs must match exactly.
+checked across all arms. The original verifier compared selected returned fields
+and compact digests, not every field of the public model; see the scope below.
 
 Cold n=2048 runs use one process per operation/arm/cache condition. One starts
 with an empty Numba directory; a second uses the directory left by the first
@@ -221,8 +240,22 @@ and all operations; it cannot be assigned to one operation.
 ## Results
 
 All 75 measurement workers and five archive-generation jobs completed with
-zero exit status. Exact BASE/OPT outputs match across every size, replication,
-and cache condition; common persisted outputs match across all three arms.
+zero exit status. Recorded BASE/OPT verifier dictionaries match across every
+size, replication and cache condition. Original clustering assertions checked
+label values and each returned cluster's members, but did not establish complete
+cluster coverage; their label digests came from inputs. The corrected verifier
+checks complete ordered IDs, counts, labels, members, layer indices, ownership,
+read-only flags, and ordered tree entries, and digests actual returned arrays.
+Those strengthened checks apply to the correction runs, not retroactively to
+the original raw files.
+
+Persistence assertions compare embedding/reduced vectors, document dataframe,
+sparse shapes/values, normalized tree, table identities/names/sizes/keyphrases
+and reconstructed members. Its digests cover only vectors, memberships, tree
+and topic names. Prompts, histories, context, arbitrary metadata and other
+mutable Topic fields are not universally compared. The retained persistence
+differential separately checks member values/order/dtype/ownership and features
+for its enumerated cases. These are scoped checks, not universal equivalence.
 The original summary check failed because it treated the tested Toponymy
 distribution as a shared dependency: OLD/BASE inherited installed metadata
 `0.5.2`, while the optimized checkout's build metadata says `0.6.0.dev0`.
@@ -395,8 +428,14 @@ reduced total memory. The final frozen campaign is the basis for conclusions.
 ## Validation and self-audit
 
 See [validation/README.md](validation/README.md) and its raw logs for the full
-check inventory. The sole full-suite failure is the same on base and optimized:
+historical check inventory. The original sole full-suite failure was the same on base and optimized:
 EVoC AMI `0.7327008099963787 < 0.75`, with 199/1000 observations assigned.
+The later independent audit instead observed AMI `0.9627363594320391`, 691/1000
+assigned and eight final clusters on both revisions, with identical native and
+adapter label hashes. Fixed-one/default threads, fresh caches and temporary
+copies of existing EVoC caches all passed. No causal explanation was established.
+Source tracing identified no path from the performance changes to the differing
+native EVoC output; no EVoC source or threshold is changed here.
 Five-module mypy reports the same 19 existing diagnostics in both revisions;
 the three other changed modules pass. Dependency advisories are inherited and
 documented separately. Neither typing nor dependency auditing is claimed clean.
@@ -454,6 +493,8 @@ regenerable ZIPs and Numba binaries; their hashes and inventories are retained.
 This is a stacked branch while #211 is open. No upstream PR or merge is
 authorized. The future PR title/body is in [future_pr.md](future_pr.md).
 After #211 merges, fetch upstream/main, identify how its history was integrated,
-rebase only commits after PERF_BASE, verify the resulting diff contains only
-this follow-up, and rerun relevant full validation and performance checks.
+prepare a clean follow-up containing the selected file deltas in
+[the upstream manifest](upstream_file_manifest.md), verify the diff contains only
+this follow-up, and rerun relevant full validation and performance checks. Keep
+the complete campaign history on this branch as the retained evidence record.
 Opening the upstream PR still requires explicit authorization.

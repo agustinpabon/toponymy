@@ -1,25 +1,41 @@
-# Validation evidence
+# Historical validation evidence
 
-All checks ran locally on macOS arm64 / Python 3.12.13. The production code
+The original checks below ran locally on macOS arm64 / Python 3.12.13. The production code
 under test is the code in measured commit
 `b2dedf32f5294e90328b0b02879b8153bc0bf357`. No CI settings, existing tests,
 quality thresholds, or dependency constraints were changed.
 
-## Default suite: one confirmed baseline failure
+## Original default suite: one recorded failure on both revisions
 
 | Revision | Passed | Failed | Skipped | Deselected |
 |---|---:|---:|---:|---:|
 | PERF_BASE `04c300c6a0fe1117531a64e6a7966b436eadfce7` | 1488 | 1 | 43 | 3 |
 | Optimized | 1645 | 1 | 43 | 3 |
 
-Both fail only
+Both original runs failed only
 `test_evoc_refactor_default_hierarchy_quality_matches_original_threshold`
 in `tests/test_clustering_quality.py`: adjusted mutual information is
 `0.7327008099963787`, below the unchanged `0.75` threshold, with 199 of 1000
 observations assigned. This occurs with EVoC 0.3.1 on this host. It is evidence
-of an existing environment/baseline failure, not evidence that this branch's
-full suite is green. Resolving or reproducing that failure on the supported
-Linux CI matrix remains necessary before claiming full validation.
+that the event affected both revisions in those runs. Its cause remains
+unresolved; stochastic or platform behavior has not been established.
+
+The subsequent independent audit passed the exact test on untouched BASE and
+OPT: AMI `0.9627363594320391`, 691/1000 assigned, eight final clusters and
+identical native/adapter label hashes. Fixed-one/default threads, fresh Numba
+caches, and temporary copies of existing EVoC caches all passed. The auditor's
+optimized complete suite passed with 1646 passed, 43 skipped and 3 deselected.
+Source tracing identified no path from these performance changes to the differing
+native EVoC result. These observations do not erase the retained earlier failures.
+Linux Python 3.10/3.11/3.12 CI after integration with merged #211 remains required
+before claiming full validation. New correction checks are reported separately in
+[the correction report](../correction/REPORT.md).
+
+The correction run has since reproduced the earlier failure again: 1665 passed,
+one EVoC failure, 43 skipped and 3 deselected. Separate exact-test BASE/OPT runs
+both fail with the same 199 assigned observations and identical label hashes.
+The intervening independent passing audit remains part of the evidence; the
+cause of the difference remains unresolved.
 
 The default project selection is `-m 'not external'`. The 43 skips retain the
 repository's normal opt-in model/service/platform requirements. No extra
