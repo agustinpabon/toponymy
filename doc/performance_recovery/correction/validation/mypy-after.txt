@@ -1,0 +1,30 @@
+toponymy/clustering.py:432: error: Signature of "fit" incompatible with supertype "Clusterer"  [override]
+toponymy/clustering.py:432: note:      Superclass:
+toponymy/clustering.py:432: note:          def fit(self, data: Any, **kwargs: Any) -> Any
+toponymy/clustering.py:432: note:      Subclass:
+toponymy/clustering.py:432: note:          def fit(self, vectors: ndarray[tuple[Any, ...], dtype[Any]] = ..., *, clusterable_vectors: Any = ..., verbose: bool | None = ...) -> Any
+toponymy/clustering.py:434: error: Incompatible default for parameter "vectors" (default has type "None", parameter has type "ndarray[tuple[Any, ...], dtype[Any]]")  [assignment]
+toponymy/clustering.py:434: note: PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True
+toponymy/clustering.py:434: note: Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase
+toponymy/clustering.py:642: error: Signature of "fit" incompatible with supertype "Clusterer"  [override]
+toponymy/clustering.py:642: note:      Superclass:
+toponymy/clustering.py:642: note:          def fit(self, data: Any, **kwargs: Any) -> Any
+toponymy/clustering.py:642: note:      Subclass:
+toponymy/clustering.py:642: note:          def fit(self, vectors: ndarray[tuple[Any, ...], dtype[Any]]) -> Any
+toponymy/serialization.py:818: error: Incompatible types in assignment (expression has type "Path", variable has type "str")  [assignment]
+toponymy/serialization.py:915: error: Incompatible types in assignment (expression has type "Path", variable has type "str")  [assignment]
+toponymy/serialization.py:967: error: Incompatible types in assignment (expression has type "Path", variable has type "str")  [assignment]
+toponymy/serialization.py:970: error: Unsupported left operand type for / ("str")  [operator]
+toponymy/serialization.py:979: error: Unsupported left operand type for / ("str")  [operator]
+toponymy/serialization.py:1012: error: Unsupported left operand type for / ("str")  [operator]
+toponymy/serialization.py:1015: error: Unsupported left operand type for / ("str")  [operator]
+toponymy/serialization.py:1058: error: Unsupported left operand type for / ("str")  [operator]
+toponymy/serialization.py:1109: error: Incompatible types in assignment (expression has type "Path", variable has type "str")  [assignment]
+toponymy/serialization.py:1124: error: "str" has no attribute "exists"  [attr-defined]
+toponymy/serialization.py:1131: error: "str" has no attribute "mkdir"  [attr-defined]
+toponymy/serialization.py:1172: error: Unsupported left operand type for / ("str")  [operator]
+toponymy/serialization.py:1176: error: Unsupported left operand type for / ("str")  [operator]
+toponymy/serialization.py:1206: error: Unsupported left operand type for / ("str")  [operator]
+toponymy/serialization.py:1222: error: Unsupported left operand type for / ("str")  [operator]
+toponymy/serialization.py:1254: error: Unsupported left operand type for / ("str")  [operator]
+Found 19 errors in 2 files (checked 5 source files)

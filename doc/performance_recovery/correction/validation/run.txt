@@ -1,0 +1,12 @@
+focused 0
+full 1
+evoc-after 1
+evoc-base 1
+centroid-differential 0
+persistence-differential 0
+black 0
+mypy-after 1
+mypy-base 1
+mypy-clean 0
+compilation 0
+dependency-audit 1

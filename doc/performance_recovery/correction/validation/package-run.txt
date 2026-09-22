@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/toponymy-correction-package.py", line 49, in <module>
+    assert smoke.returncode==0
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError

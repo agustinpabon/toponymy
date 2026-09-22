@@ -1,0 +1,5 @@
+Processing /tmp/toponymy-correction-package-current.GARkH1/dist/toponymy-0.6.0.dev0-py3-none-any.whl
+Installing collected packages: toponymy
+Successfully installed toponymy-0.6.0.dev0
+Installed wheel: /tmp/toponymy-correction-package-current.GARkH1/installed/toponymy/__init__.py
+Depth-64 clustering, real legacy fixture read, ZIP/Lance round trips passed

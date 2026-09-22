@@ -1,0 +1,6 @@
+Processing /var/folders/m1/vkycjkqj267dy063y9z8fncm0000gn/T/toponymy-correction-package-xnu0ncb1/dist/toponymy-0.6.0.dev0-py3-none-any.whl
+Installing collected packages: toponymy
+Successfully installed toponymy-0.6.0.dev0
+Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+AssertionError

@@ -1,0 +1,5 @@
+{
+  "cases": 216,
+  "status": "passed",
+  "comparison": "exact bytes, dtype, shape, input immutability"
+}

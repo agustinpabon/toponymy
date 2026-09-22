@@ -1,0 +1,272 @@
+{
+  "threads": {
+    "NUMBA_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "commands": [
+    {
+      "name": "focused",
+      "command": [
+        "/Users/agus/Developer/toponymy-perf/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "-p",
+        "no:azurepipelines",
+        "tests/test_clustering_contracts.py",
+        "tests/test_clustering_characterization.py",
+        "tests/test_clustering_adapters.py",
+        "tests/test_result_consumers.py",
+        "tests/test_performance_clustering.py",
+        "tests/test_performance_centroids.py",
+        "tests/test_performance_persistence.py",
+        "tests/test_archive_boundaries.py",
+        "tests/test_archive_identity.py",
+        "tests/test_persistence_contracts.py",
+        "tests/test_lance_integrity.py",
+        "tests/test_migration_regressions.py",
+        "tests/test_name_state.py",
+        "tests/test_reuse_and_renderings.py"
+      ],
+      "cwd": "/Users/agus/Developer/toponymy-perf",
+      "returncode": 0,
+      "seconds": 86.7477490901947,
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "full",
+      "command": [
+        "/Users/agus/Developer/toponymy-perf/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "-p",
+        "no:azurepipelines",
+        "--cov=toponymy",
+        "--cov-report=term",
+        "--cov-report=json:/Users/agus/Developer/toponymy-perf/doc/performance_recovery/correction/validation/coverage.json"
+      ],
+      "cwd": "/Users/agus/Developer/toponymy-perf",
+      "returncode": 1,
+      "seconds": 198.7034740447998,
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "evoc-after",
+      "command": [
+        "/Users/agus/Developer/toponymy-perf/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "-p",
+        "no:azurepipelines",
+        "-s",
+        "-p",
+        "correction_evoc_capture",
+        "tests/test_clustering_quality.py::test_evoc_refactor_default_hierarchy_quality_matches_original_threshold"
+      ],
+      "cwd": "/Users/agus/Developer/toponymy-perf",
+      "returncode": 1,
+      "seconds": 45.14513683319092,
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "evoc-base",
+      "command": [
+        "/Users/agus/Developer/toponymy-perf/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "-p",
+        "no:azurepipelines",
+        "-s",
+        "-p",
+        "correction_evoc_capture",
+        "tests/test_clustering_quality.py::test_evoc_refactor_default_hierarchy_quality_matches_original_threshold"
+      ],
+      "cwd": "/Users/agus/Developer/toponymy-perf-base",
+      "returncode": 1,
+      "seconds": 46.223304986953735,
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "centroid-differential",
+      "command": [
+        "/Users/agus/Developer/toponymy-perf/.venv/bin/python",
+        "doc/performance_recovery/check_centroids.py",
+        "--base",
+        "/Users/agus/Developer/toponymy-perf-base",
+        "--optimized",
+        "/Users/agus/Developer/toponymy-perf"
+      ],
+      "cwd": "/Users/agus/Developer/toponymy-perf",
+      "returncode": 0,
+      "seconds": 5.001244068145752,
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "persistence-differential",
+      "command": [
+        "/Users/agus/Developer/toponymy-perf/.venv/bin/python",
+        "doc/performance_recovery/check_persistence.py",
+        "--base",
+        "04c300c6a0fe1117531a64e6a7966b436eadfce7",
+        "--output",
+        "/Users/agus/Developer/toponymy-perf/doc/performance_recovery/correction/validation/persistence-differential.json"
+      ],
+      "cwd": "/Users/agus/Developer/toponymy-perf",
+      "returncode": 0,
+      "seconds": 1.3005969524383545,
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "black",
+      "command": [
+        "/Users/agus/Developer/toponymy-perf/.venv/bin/python",
+        "-m",
+        "black",
+        "--check",
+        "--diff",
+        "--target-version",
+        "py310",
+        "toponymy/",
+        "doc/",
+        "tests/test_performance_clustering.py",
+        "tests/test_performance_centroids.py",
+        "tests/test_performance_persistence.py"
+      ],
+      "cwd": "/Users/agus/Developer/toponymy-perf",
+      "returncode": 0,
+      "seconds": 0.7732129096984863,
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "mypy-after",
+      "command": [
+        "/Users/agus/Developer/toponymy-perf/.venv/bin/python",
+        "-m",
+        "mypy",
+        "--no-incremental",
+        "--cache-dir",
+        "/var/folders/m1/vkycjkqj267dy063y9z8fncm0000gn/T/toponymy-correction-validation-gpgoa35i/mypy",
+        "--follow-imports=silent",
+        "--ignore-missing-imports",
+        "toponymy/clustering.py",
+        "toponymy/types.py",
+        "toponymy/utility_functions.py",
+        "toponymy/plotting.py",
+        "toponymy/serialization.py"
+      ],
+      "cwd": "/Users/agus/Developer/toponymy-perf",
+      "returncode": 1,
+      "seconds": 17.085995197296143,
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "mypy-base",
+      "command": [
+        "/Users/agus/Developer/toponymy-perf/.venv/bin/python",
+        "-m",
+        "mypy",
+        "--no-incremental",
+        "--cache-dir",
+        "/var/folders/m1/vkycjkqj267dy063y9z8fncm0000gn/T/toponymy-correction-validation-gpgoa35i/mypy",
+        "--follow-imports=silent",
+        "--ignore-missing-imports",
+        "toponymy/clustering.py",
+        "toponymy/types.py",
+        "toponymy/utility_functions.py",
+        "toponymy/plotting.py",
+        "toponymy/serialization.py"
+      ],
+      "cwd": "/Users/agus/Developer/toponymy-perf-base",
+      "returncode": 1,
+      "seconds": 16.222191095352173,
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "mypy-clean",
+      "command": [
+        "/Users/agus/Developer/toponymy-perf/.venv/bin/python",
+        "-m",
+        "mypy",
+        "--no-incremental",
+        "--cache-dir",
+        "/var/folders/m1/vkycjkqj267dy063y9z8fncm0000gn/T/toponymy-correction-validation-gpgoa35i/mypy",
+        "--follow-imports=silent",
+        "--ignore-missing-imports",
+        "toponymy/types.py",
+        "toponymy/utility_functions.py",
+        "toponymy/plotting.py"
+      ],
+      "cwd": "/Users/agus/Developer/toponymy-perf",
+      "returncode": 0,
+      "seconds": 16.092543125152588,
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "compilation",
+      "command": [
+        "/Users/agus/Developer/toponymy-perf/.venv/bin/python",
+        "-c",
+        "import pathlib,py_compile,tempfile; files=[*pathlib.Path('toponymy').rglob('*.py'),*pathlib.Path('doc/performance_recovery').rglob('*.py')]; d=tempfile.TemporaryDirectory(); [py_compile.compile(str(p),cfile=d.name+'/'+str(i)+'.pyc',doraise=True) for i,p in enumerate(files)]; print(f'Compiled {len(files)} Python files'); d.cleanup()"
+      ],
+      "cwd": "/Users/agus/Developer/toponymy-perf",
+      "returncode": 0,
+      "seconds": 0.14359688758850098,
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "dependency-audit",
+      "command": [
+        "/Users/agus/Developer/toponymy-perf/.venv/bin/python",
+        "-m",
+        "pip_audit",
+        "--format",
+        "json",
+        "--output",
+        "/Users/agus/Developer/toponymy-perf/doc/performance_recovery/correction/validation/dependency-audit.json"
+      ],
+      "cwd": "/Users/agus/Developer/toponymy-perf",
+      "returncode": 1,
+      "seconds": 11.387476921081543,
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

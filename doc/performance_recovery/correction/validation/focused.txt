@@ -1,0 +1,24 @@
+........................................................................ [ 14%]
+........................................................................ [ 28%]
+........................................................................ [ 42%]
+........................................................................ [ 56%]
+........................................................................ [ 70%]
+........................................................................ [ 84%]
+........................................................................ [ 98%]
+........                                                                 [100%]
+=============================== warnings summary ===============================
+tests/test_migration_regressions.py::test_keyphrase_public_boundary_preserves_text_and_custom_conversion[False]
+  /Users/agus/Developer/toponymy/.venv/lib/python3.12/site-packages/numba/core/ir_utils.py:2200: NumbaPendingDeprecationWarning:
+  Encountered the use of a type that is scheduled for deprecation: type 'reflected list' found for argument 'candidate_keyphrases' of function 'longest_keyphrases'.
+
+  For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
+
+  File "toponymy/keyphrases.py", line 583:
+  @numba.njit()
+  def longest_keyphrases(candidate_keyphrases):  # pragma: no cover
+  ^
+
+    warnings.warn(NumbaPendingDeprecationWarning(msg, loc=loc))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+512 passed, 1 warning in 83.68s (0:01:23)

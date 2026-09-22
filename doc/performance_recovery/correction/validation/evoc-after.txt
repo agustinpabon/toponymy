@@ -1,0 +1,59 @@
+EVOC_OBSERVATION={"ami": 0.7327008099963784, "assigned": 199, "clusters": 15, "label_sha256": "e95cd6adc250248e45440a8b72e5262e36e2b28383e7fba36b210fc65f31d98c", "minimum": 0.75}
+F
+=================================== FAILURES ===================================
+___ test_evoc_refactor_default_hierarchy_quality_matches_original_threshold ____
+
+    def test_evoc_refactor_default_hierarchy_quality_matches_original_threshold():
+        """Preserve native granularity and the refactor's ground-truth AMI threshold."""
+        _require_evoc()
+        vectors, ground_truth = _blobs(centers=5, n_features=128, cluster_std=0.001)
+        clusterer = EVoCClusterer(random_state=42).fit(vectors)
+
+        assert clusterer.cluster_layers_
+        final_layer = clusterer.cluster_layers_[-1]
+        # EVoC selects granularity: its maintained version can split one true blob.
+        # The adapter must retain those clusters rather than truncate native output.
+        assert len(final_layer) >= 5
+        np.testing.assert_array_equal(
+            final_layer.labels, clusterer.evoc_.cluster_layers_[-1]
+        )
+        assert (
+            len(final_layer) == np.unique(final_layer.labels[final_layer.labels >= 0]).size
+        )
+>       _assert_assigned_ami(final_layer.labels, ground_truth, 0.75)
+
+tests/test_clustering_quality.py:136:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+/var/folders/m1/vkycjkqj267dy063y9z8fncm0000gn/T/toponymy-correction-validation-gpgoa35i/correction_evoc_capture.py:10: in capture
+    return original(labels,ground_truth,minimum)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+labels = array([-1, -1,  5, -1, -1, -1, -1, -1, -1, -1, 10, -1, -1,  6, -1,  5, -1,
+       -1,  4, -1, -1, -1, -1,  9, 12, -1, ...-1,  5, -1, 10, -1, -1, -1, 12, -1, -1,  7, -1, -1, -1,
+       -1, 14, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+ground_truth = array([3, 0, 4, 1, 0, 4, 2, 2, 0, 3, 0, 2, 3, 3, 4, 4, 0, 1, 4, 0, 0, 2,
+       0, 1, 2, 0, 2, 3, 4, 2, 4, 1, 1, 1, 4,...2, 4, 1,
+       1, 1, 1, 0, 0, 4, 1, 0, 3, 0, 4, 2, 4, 4, 3, 3, 2, 4, 4, 0, 0, 1,
+       3, 1, 0, 4, 1, 3, 3, 2, 0, 4])
+minimum = 0.75
+
+    def _assert_assigned_ami(labels, ground_truth, minimum):
+        """Use the original non-noise metric and reject vacuous assignments."""
+        assert labels.shape == ground_truth.shape
+        assigned = labels >= 0
+        assert assigned.any(), "The density clusterer assigned no observations"
+        assert np.unique(labels[assigned]).size >= 2
+        assert np.unique(ground_truth[assigned]).size >= 2
+        score = adjusted_mutual_info_score(labels[assigned], ground_truth[assigned])
+>       assert score >= minimum, (
+            f"Assigned-point AMI {score:.6f} is below {minimum}; "
+            f"assigned {assigned.sum()}/{labels.size} observations"
+        )
+E       AssertionError: Assigned-point AMI 0.732701 is below 0.75; assigned 199/1000 observations
+E       assert 0.7327008099963787 >= 0.75
+
+tests/test_clustering_quality.py:42: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_clustering_quality.py::test_evoc_refactor_default_hierarchy_quality_matches_original_threshold
+1 failed in 42.79s

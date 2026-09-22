@@ -1,0 +1,6 @@
+{
+  "status": "same normalized diagnostics",
+  "after_errors": 19,
+  "base_errors": 19,
+  "normalization": "replace source line/column numbers only"
+}

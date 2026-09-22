@@ -1,0 +1,5 @@
+Processing /var/folders/m1/vkycjkqj267dy063y9z8fncm0000gn/T/toponymy-correction-package-1ea7bh2x/dist/toponymy-0.6.0.dev0-py3-none-any.whl
+Installing collected packages: toponymy
+Successfully installed toponymy-0.6.0.dev0
+Installed wheel: /var/folders/m1/vkycjkqj267dy063y9z8fncm0000gn/T/toponymy-correction-package-1ea7bh2x/installed/toponymy/__init__.py
+Depth-64 clustering, real legacy fixture read, ZIP/Lance round trips passed
