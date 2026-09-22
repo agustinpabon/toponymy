@@ -1,0 +1,30 @@
+         12321 function calls (11481 primitive calls) in 0.010 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+       20    0.000    0.000    0.010    0.000 <stdin>:10(<lambda>)
+       20    0.000    0.000    0.010    0.000 plotting.py:6(construct_topic_hierarchy)
+       60    0.000    0.000    0.007    0.000 __init__.py:595(__init__)
+       60    0.000    0.000    0.007    0.000 __init__.py:669(update)
+       60    0.007    0.000    0.007    0.000 {built-in method _collections._count_elements}
+   860/20    0.001    0.000    0.002    0.000 plotting.py:44(recurse_hierarchy)
+      840    0.000    0.000    0.001    0.000 treemap.py:8(_layer_value)
+     1080    0.000    0.000    0.000    0.000 {built-in method builtins.any}
+      900    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+       20    0.000    0.000    0.000    0.000 treemap.py:17(_rooted_tree)
+      900    0.000    0.000    0.000    0.000 <frozen abc>:117(__instancecheck__)
+     2780    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+      900    0.000    0.000    0.000    0.000 {built-in method _abc._abc_instancecheck}
+     1700    0.000    0.000    0.000    0.000 plotting.py:63(<genexpr>)
+      860    0.000    0.000    0.000    0.000 {method 'get' of 'dict' objects}
+     1060    0.000    0.000    0.000    0.000 treemap.py:21(<genexpr>)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+       20    0.000    0.000    0.000    0.000 {built-in method builtins.sum}
+       40    0.000    0.000    0.000    0.000 {built-in method builtins.hasattr}
+       60    0.000    0.000    0.000    0.000 types.py:94(cluster_labels)
+       40    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+       20    0.000    0.000    0.000    0.000 {built-in method builtins.getattr}
+       20    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
+
+

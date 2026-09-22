@@ -1,0 +1,53 @@
+         69421 function calls in 0.034 seconds
+
+   Ordered by: cumulative time
+   List reduced from 85 to 45 due to restriction <45>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+       20    0.000    0.000    0.034    0.002 <stdin>:10(<lambda>)
+       20    0.000    0.000    0.034    0.002 clustering.py:217(fit)
+       20    0.000    0.000    0.033    0.002 clustering.py:182(_set_labels)
+       20    0.000    0.000    0.022    0.001 clustering.py:39(build_cluster_layers)
+      900    0.000    0.000    0.011    0.000 clustering.py:50(<genexpr>)
+      840    0.000    0.000    0.011    0.000 <string>:2(__init__)
+      840    0.001    0.000    0.011    0.000 types.py:44(__post_init__)
+     1140    0.003    0.000    0.008    0.000 types.py:13(_integer_vector)
+      120    0.001    0.000    0.008    0.000 clustering.py:32(_group_labels)
+       20    0.001    0.000    0.006    0.000 clustering.py:88(validate_cluster_tree)
+     3960    0.001    0.000    0.006    0.000 fromnumeric.py:2436(any)
+     4760    0.002    0.000    0.006    0.000 fromnumeric.py:86(_wrapreduction_any_all)
+     1140    0.000    0.000    0.006    0.000 fromnumeric.py:48(_wrapfunc)
+       20    0.001    0.000    0.005    0.000 clustering.py:57(build_cluster_tree)
+      240    0.005    0.000    0.005    0.000 {method 'argsort' of 'numpy.ndarray' objects}
+      120    0.000    0.000    0.005    0.000 fromnumeric.py:1100(argsort)
+       60    0.002    0.000    0.004    0.000 types.py:69(__post_init__)
+     3020    0.002    0.000    0.003    0.000 types.py:27(_nonnegative_integer)
+     4880    0.003    0.000    0.003    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+     1060    0.000    0.000    0.003    0.000 clustering.py:110(check_key)
+       80    0.000    0.000    0.002    0.000 clustering.py:23(_validate_label_layers)
+      840    0.001    0.000    0.001    0.000 {method 'sort' of 'numpy.ndarray' objects}
+       60    0.000    0.000    0.001    0.000 _shape_base_impl.py:798(split)
+     4160    0.001    0.000    0.001    0.000 getlimits.py:412(__init__)
+       60    0.001    0.000    0.001    0.000 _shape_base_impl.py:737(array_split)
+      800    0.000    0.000    0.001    0.000 fromnumeric.py:2548(all)
+      120    0.000    0.000    0.001    0.000 _arraysetops_impl.py:145(unique)
+      120    0.001    0.000    0.001    0.000 _arraysetops_impl.py:350(_unique1d)
+     8480    0.001    0.000    0.001    0.000 {built-in method builtins.isinstance}
+      900    0.000    0.000    0.001    0.000 fromnumeric.py:552(swapaxes)
+       20    0.000    0.000    0.001    0.000 clustering.py:203(__init__)
+      120    0.000    0.000    0.001    0.000 numeric.py:679(flatnonzero)
+     1140    0.000    0.000    0.000    0.000 {built-in method numpy.array}
+       20    0.000    0.000    0.000    0.000 clustering.py:140(_validate_vectors)
+      180    0.000    0.000    0.000    0.000 {built-in method builtins.any}
+     4160    0.000    0.000    0.000    0.000 getlimits.py:436(max)
+     4800    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+      120    0.000    0.000    0.000    0.000 fromnumeric.py:1993(nonzero)
+     3960    0.000    0.000    0.000    0.000 fromnumeric.py:2431(_any_dispatcher)
+      120    0.000    0.000    0.000    0.000 {method 'nonzero' of 'numpy.ndarray' objects}
+       60    0.000    0.000    0.000    0.000 numeric.py:2535(array_equal)
+       80    0.000    0.000    0.000    0.000 {method 'all' of 'numpy.ndarray' objects}
+     1680    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
+      900    0.000    0.000    0.000    0.000 types.py:73(<genexpr>)
+     1740    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+
+
