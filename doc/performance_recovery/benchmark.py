@@ -524,8 +524,13 @@ def run(args):
     missing = set(selected) - operations.keys()
     if missing:
         raise ValueError(f"Missing archive argument for {sorted(missing)}")
+    # A dedicated environment may borrow a read-only dependency directory.
+    # Resolve the visible version instead of letting a shadowed distribution
+    # later in sys.path overwrite the active version in the provenance record.
     dependencies = {
-        distribution.metadata["Name"]: distribution.version
+        distribution.metadata["Name"]: importlib.metadata.version(
+            distribution.metadata["Name"]
+        )
         for distribution in importlib.metadata.distributions()
     }
     report = {
