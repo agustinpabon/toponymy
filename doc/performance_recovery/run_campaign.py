@@ -20,6 +20,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import shlex
 import statistics
 import subprocess
@@ -208,12 +209,31 @@ def invoke(root, manifest, name, command, environment, cache=None):
         raise RuntimeError(f"Worker {name} failed; see its stderr and manifest")
 
 
+def normalized_distribution_name(name):
+    return re.sub(r"[-_.]+", "-", name).lower()
+
+
+def third_party_dependencies(dependencies):
+    # Toponymy is the project under comparison, identified independently by its
+    # imported source path, HEAD and Python source hashes in the saved evidence.
+    return {
+        name: version
+        for name, version in dependencies.items()
+        if normalized_distribution_name(name) != "toponymy"
+    }
+
+
 def summarize(root, specs):
+    if any((root / name).exists() for name in ("summary.json", "summary.md")):
+        raise FileExistsError("Refusing to replace existing campaign summaries")
     reports = [(spec, json.loads(Path(spec["output"]).read_text())) for spec in specs]
     environment = reports[0][1]
     for _, report in reports:
+        if third_party_dependencies(report["dependencies"]) != third_party_dependencies(
+            environment["dependencies"]
+        ):
+            raise AssertionError("Worker third-party dependencies changed")
         for field in (
-            "dependencies",
             "python",
             "python_executable",
             "thread_environment",
@@ -221,6 +241,21 @@ def summarize(root, specs):
         ):
             if report[field] != environment[field]:
                 raise AssertionError(f"Worker environment or harness changed: {field}")
+    project_metadata = {
+        arm: [
+            {"distribution_name": name, "version": version}
+            for name, version in sorted(
+                {
+                    (name, version)
+                    for spec, report in reports
+                    if spec["arm"] == arm
+                    for name, version in report["dependencies"].items()
+                    if normalized_distribution_name(name) == "toponymy"
+                }
+            )
+        ]
+        for arm in ARMS
+    }
     # Exact comparison includes centroids' raw-byte digest, not just tolerances.
     equivalent = {}
     for spec, report in reports:
@@ -287,7 +322,12 @@ def summarize(root, specs):
         "estimator": "median of three independent warm-process medians; "
         "within-process repetitions correlated; no statistical superiority claim",
         "base_optimized_exact_outputs": "PASS across sizes, replications and cache modes",
-        "matched_dependencies_and_harness": "PASS",
+        "matched_dependencies_and_harness": "PASS for all third-party distributions, "
+        "interpreter, thread settings and harness",
+        "project_distribution_metadata_by_arm": project_metadata,
+        "project_metadata_note": "Only the tested Toponymy distribution is excluded from "
+        "shared dependency equality. Its observed metadata is retained here; imported source "
+        "paths, HEADs and Python source hashes identify the tested revisions separately.",
         "identical_inputs_and_archives": "PASS",
         "old_base_optimized_legacy_outputs": "PASS for all shared persistence digests",
         "old_contracts": "OLD precomputed includes centroids but lacks NEW ownership/validation; "
@@ -300,6 +340,19 @@ def summarize(root, specs):
         summary["estimator"],
         "",
         summary["old_contracts"],
+        "",
+        summary["project_metadata_note"],
+        "",
+        "Observed Toponymy distribution metadata: "
+        + "; ".join(
+            f"{arm}: "
+            + ", ".join(
+                f"{item['distribution_name']} {item['version']}"
+                for item in project_metadata[arm]
+            )
+            for arm in ARMS
+        )
+        + ".",
         "",
         "Ratios are OPT/BASE and OPT/OLD; below one means shorter runtime.",
         "",
