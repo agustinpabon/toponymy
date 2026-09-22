@@ -32,8 +32,34 @@ def _validate_label_layers(labels: Sequence[np.ndarray]) -> list[np.ndarray]:
 def _group_labels(labels: np.ndarray):
     indices = np.flatnonzero(labels >= 0)
     order = indices[np.argsort(labels[indices], kind="stable")]
-    ids, starts = np.unique(labels[order], return_index=True)
+    sorted_labels = labels[order]
+    starts = np.flatnonzero(
+        np.concatenate(
+            (
+                np.ones(min(1, order.size), dtype=bool),
+                sorted_labels[1:] != sorted_labels[:-1],
+            )
+        )
+    )
+    ids = sorted_labels[starts]
     return ids, starts, order
+
+
+def _layers_from_grouping(labels, groups) -> list[ClusterLayer]:
+    """Consume owned validated labels and their freshly computed grouping."""
+    layers = []
+    for layer_index, (layer_labels, (ids, starts, order)) in enumerate(
+        zip(labels, groups)
+    ):
+        ends = np.append(starts[1:], order.size)
+        clusters = tuple(
+            Cluster._from_grouped_members(label, order[start:end])
+            for label, start, end in zip(ids, starts, ends)
+        )
+        layers.append(
+            ClusterLayer._from_grouped_clusters(clusters, layer_index, layer_labels)
+        )
+    return layers
 
 
 def build_cluster_layers(labels: Sequence[np.ndarray]) -> list[ClusterLayer]:
@@ -43,15 +69,8 @@ def build_cluster_layers(labels: Sequence[np.ndarray]) -> list[ClusterLayer]:
     not be contiguous, and are never used as allocation sizes. Empty layers
     and all-noise layers are valid. Returned arrays are owned and read-only.
     """
-    layers = []
-    for layer_index, layer_labels in enumerate(_validate_label_layers(labels)):
-        ids, starts, order = _group_labels(layer_labels)
-        members = np.split(order, starts[1:])
-        clusters = tuple(
-            Cluster(int(label), group) for label, group in zip(ids, members)
-        )
-        layers.append(ClusterLayer(clusters, layer_index, layer_labels))
-    return layers
+    labels = _validate_label_layers(labels)
+    return _layers_from_grouping(labels, [_group_labels(layer) for layer in labels])
 
 
 def build_cluster_tree(labels: Sequence[np.ndarray]) -> ClusterTree:
@@ -62,10 +81,18 @@ def build_cluster_tree(labels: Sequence[np.ndarray]) -> ClusterTree:
     root ``(number_of_layers, 0)``. No nodes are invented for absent IDs.
     """
     labels = _validate_label_layers(labels)
+    return _tree_from_grouping(labels, [_group_labels(layer) for layer in labels])
+
+
+def _tree_from_grouping(labels, groups) -> ClusterTree:
+    """Build true nearest-containment edges from validated canonical groups.
+
+    Every grouped ID is visited once, and only attaches to a strictly higher
+    layer (or the root), so generated trees need no second integrity pass.
+    """
     tree: ClusterTree = {}
     root = (len(labels), 0)
-    for lower_index, lower in enumerate(labels):
-        ids, starts, order = _group_labels(lower)
+    for lower_index, (ids, starts, order) in enumerate(groups):
         if not ids.size:
             continue
         unresolved = np.ones(ids.size, dtype=bool)
@@ -179,15 +206,23 @@ class Clusterer(ABC, BaseEstimator):
     def __sklearn_is_fitted__(self):
         return hasattr(self, "cluster_layers_") and hasattr(self, "cluster_tree_")
 
-    def _set_labels(self, labels, *, tree=None):
-        layers = build_cluster_layers(labels)
+    def _set_labels(self, labels, *, tree=None, vectors=None):
+        labels = _validate_label_layers(labels)
+        if vectors is not None:
+            vectors = _validate_vectors(vectors, precomputed=sparse.issparse(vectors))
+            if labels and vectors.shape[0] != labels[0].size:
+                raise ValueError(
+                    "vectors and labels must have the same observation count"
+                )
+        groups = [_group_labels(layer) for layer in labels]
+        layers = _layers_from_grouping(labels, groups)
         if tree is None:
-            tree = build_cluster_tree([layer.labels for layer in layers])
-        validate_cluster_tree(tree, layers)
+            tree = _tree_from_grouping(labels, groups)
+        else:
+            validate_cluster_tree(tree, layers)
+            tree = {parent: list(children) for parent, children in tree.items()}
         self.cluster_layers_ = layers
-        self.cluster_tree_ = {
-            parent: list(children) for parent, children in tree.items()
-        }
+        self.cluster_tree_ = tree
         return self
 
 
@@ -219,16 +254,8 @@ class PrecomputedClusterer(Clusterer):
         if configured is None:
             if data is None:
                 raise ValueError("supply precomputed labels at construction or fit")
-            configured = _validate_label_layers(data)
-        else:
-            configured = _validate_label_layers(configured)
-            if data is not None:
-                vectors = _validate_vectors(data, precomputed=sparse.issparse(data))
-                if configured and vectors.shape[0] != configured[0].size:
-                    raise ValueError(
-                        "vectors and labels must have the same observation count"
-                    )
-        return self._set_labels(configured, tree=self.cluster_tree)
+            return self._set_labels(data, tree=self.cluster_tree)
+        return self._set_labels(configured, tree=self.cluster_tree, vectors=data)
 
 
 class KMeansClusterer(Clusterer):

@@ -41,6 +41,21 @@ class Cluster:
     label: int
     members: NDArray[np.int64]
 
+    @classmethod
+    def _from_grouped_members(cls, label: int, members: NDArray[np.int64]):
+        """Own a nonempty sorted unique slice from stable label grouping.
+
+        Only clustering's canonical builder uses this path: label validation
+        and stable grouping have already established these invariants. The
+        slice is copied so no cluster retains or shares the grouping buffer.
+        """
+        result = object.__new__(cls)
+        owned_members = members.copy()
+        owned_members.flags.writeable = False
+        object.__setattr__(result, "label", int(label))
+        object.__setattr__(result, "members", owned_members)
+        return result
+
     def __post_init__(self) -> None:
         label = _nonnegative_integer(self.label, "label")
         members = _integer_vector(self.members, "members", 0)
@@ -65,6 +80,21 @@ class ClusterLayer:
     clusters: Tuple[Cluster, ...]
     layer_index: int
     labels: NDArray[np.int64]
+
+    @classmethod
+    def _from_grouped_clusters(cls, clusters, layer_index, labels):
+        """Transfer freshly owned validated labels and their canonical groups.
+
+        The builder supplies consecutive layer indices, clusters ordered by
+        label, and the exact disjoint partition of these labels. No caller's
+        arrays or persistent estimator parameters may enter this path directly.
+        """
+        result = object.__new__(cls)
+        labels.flags.writeable = False
+        object.__setattr__(result, "clusters", clusters)
+        object.__setattr__(result, "layer_index", layer_index)
+        object.__setattr__(result, "labels", labels)
+        return result
 
     def __post_init__(self) -> None:
         layer_index = _nonnegative_integer(self.layer_index, "layer_index")

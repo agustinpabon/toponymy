@@ -1,6 +1,7 @@
 from collections import Counter
 import pathlib
 from toponymy.treemap import _layer_value, _rooted_tree
+from toponymy.types import ClusterLayer
 
 
 def construct_topic_hierarchy(clusterer, topic_names, root_name="Root"):
@@ -22,18 +23,26 @@ def construct_topic_hierarchy(clusterer, topic_names, root_name="Root"):
         counters = [Counter() for _ in result.cluster_layers]
         for (layer, label), topic in result.topics.items():
             counters[layer][label] = len(topic.members)
+        n_objects = len(result.embedding_vectors)
     else:
         cluster_tree = clusterer.cluster_tree_
-        counters = [
-            Counter(layer.cluster_labels) for layer in clusterer.cluster_layers_
-        ]
+        counters = []
+        n_objects = 0
+        for layer in clusterer.cluster_layers_:
+            counter = (
+                Counter({cluster.label: len(cluster.members) for cluster in layer})
+                if isinstance(layer, ClusterLayer)
+                else Counter(layer.cluster_labels)
+            )
+            if not counters:
+                n_objects = (
+                    len(layer.labels)
+                    if isinstance(layer, ClusterLayer)
+                    else sum(counter.values())
+                )
+            counters.append(counter)
     cluster_tree, root = _rooted_tree(cluster_tree, topic_names)
 
-    n_objects = (
-        len(result.embedding_vectors)
-        if hasattr(result, "topics")
-        else sum(counters[0].values()) if counters else 0
-    )
     hierarchy = recurse_hierarchy(
         root, cluster_tree, counters, topic_names, root_name, n_objects=n_objects
     )
